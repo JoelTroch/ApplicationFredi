@@ -11,12 +11,7 @@ public class BDHelper extends SQLiteOpenHelper {
 	private final String requeteCreationBDD = "";
 	
 	public BDHelper(Context context) {
-		/* Note concernant l'emplacement de la base de données :
-		 * Pour faciliter le debugging, elle est stockée sur la carte SD.
-		 * Par défaut elle est stockée dans un emplacement interdit (sauf si le terminal est rooté).
-		 * Une fois l'application terminée, on pourra remettre son emplacement par défaut.
-		 */
-		super(context, Environment.getExternalStorageDirectory().getPath() + "appliFredi_database.db", null, 1);
+		super(context, "appliFrediBDD.db", null, 1);
 	}
 	
 	@Override
