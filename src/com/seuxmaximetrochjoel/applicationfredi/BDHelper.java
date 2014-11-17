@@ -3,7 +3,6 @@ package com.seuxmaximetrochjoel.applicationfredi;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Environment;
 
 public class BDHelper extends SQLiteOpenHelper {
 	
