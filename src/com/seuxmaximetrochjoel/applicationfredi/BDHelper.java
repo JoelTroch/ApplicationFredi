@@ -6,8 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BDHelper extends SQLiteOpenHelper {
 	
-	// TODO : Créer la requête SQL
-	private final String requeteCreationBDD = "";
+	private final String requeteCreationTableUtilisateur = "CREATE TABLE utilisateur(nom VARCHAR(32) NOT NULL);";
 	
 	public BDHelper(Context context) {
 		super(context, "appliFrediBDD.db", null, 1);
@@ -15,7 +14,7 @@ public class BDHelper extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase bdd) {
-		bdd.execSQL(requeteCreationBDD);
+		bdd.execSQL(requeteCreationTableUtilisateur);
 	}
 	
 	@Override
@@ -23,8 +22,6 @@ public class BDHelper extends SQLiteOpenHelper {
 		/* TODO : Si on a le temps, faire en sorte de conserver les données lors d'une mise à jour de la base
 		 * de données. Ca serait frustant pour l'utilisateur de perdre ses données à cause de ça.
 		 */
-		// TODO : Ecrire la requête SQL
-		bdd.execSQL("");
 		onCreate(bdd);
 	}
 }
