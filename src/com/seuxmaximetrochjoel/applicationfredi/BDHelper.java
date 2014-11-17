@@ -6,11 +6,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BDHelper extends SQLiteOpenHelper {
 	
+	// ====================================================================================================
+	// ATTRIBUTS
+	// ====================================================================================================
+	
 	private final String requeteCreationTableUtilisateur = "CREATE TABLE utilisateur(nom VARCHAR(32) NOT NULL);";
+	
+	// ====================================================================================================
+	// CONSTRUCTEUR
+	// ====================================================================================================
 	
 	public BDHelper(Context context) {
 		super(context, "appliFrediBDD.db", null, 1);
 	}
+	
+	// ====================================================================================================
+	// METHODES
+	// ====================================================================================================
 	
 	@Override
 	public void onCreate(SQLiteDatabase bdd) {

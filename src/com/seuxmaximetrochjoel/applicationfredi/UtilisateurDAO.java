@@ -8,6 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class UtilisateurDAO {
 	
+	// ====================================================================================================
+	// ATTRIBUTS
+	// ====================================================================================================
+	
 	private SQLiteDatabase bdd;
 	private BDHelper bddHelper;
 	
