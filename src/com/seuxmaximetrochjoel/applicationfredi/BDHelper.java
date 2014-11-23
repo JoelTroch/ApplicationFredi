@@ -34,6 +34,7 @@ public class BDHelper extends SQLiteOpenHelper {
 		/* TODO : Si on a le temps, faire en sorte de conserver les données lors d'une mise à jour de la base
 		 * de données. Ca serait frustant pour l'utilisateur de perdre ses données à cause de ça.
 		 */
+		bdd.execSQL("DROP TABLE utilisateur;");
 		onCreate(bdd);
 	}
 }
