@@ -15,6 +15,10 @@ public class UtilisateurDAO {
 	private SQLiteDatabase bdd;
 	private BDHelper bddHelper;
 	
+	// ====================================================================================================
+	// METHODES
+	// ====================================================================================================
+	
 	public UtilisateurDAO(Context context) {
 		bddHelper = new BDHelper(context);
 	}
@@ -31,10 +35,11 @@ public class UtilisateurDAO {
 		bddHelper.close();
 	}
 	
-	public void createUtilisateur(String nom) {
+	public long createUtilisateur(String nom) {
 		ContentValues valeurs = new ContentValues();
 		valeurs.put("nom", nom);
-		bdd.insert("utilisateur", null, valeurs);
+		long resultat = bdd.insert("utilisateur", null, valeurs);
+		return resultat;
 	}
 	
 	public Utilisateur getUtilisateur() {
