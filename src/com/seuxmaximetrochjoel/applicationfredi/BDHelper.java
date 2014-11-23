@@ -10,7 +10,7 @@ public class BDHelper extends SQLiteOpenHelper {
 	// ATTRIBUTS
 	// ====================================================================================================
 	
-	private final String requeteCreationTableUtilisateur = "CREATE TABLE utilisateur(nom VARCHAR(32) NOT NULL);";
+	private final String requeteCreationTableUtilisateur = "CREATE TABLE utilisateur(nom TEXT PRIMARY KEY NOT NULL);";
 	
 	// ====================================================================================================
 	// CONSTRUCTEUR
