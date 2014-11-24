@@ -3,5 +3,6 @@
 
     <string name="app_name">Application Fredi</string>
     <string name="nom">Nom :</string>
+    <string name="enregistrer">Enregistrer</string>
 
 </resources>
