@@ -35,9 +35,13 @@ public class UtilisateurDAO {
 		bddHelper.close();
 	}
 	
-	public long createUtilisateur(String nom) {
+	public long createUtilisateur(String nom, String prenom, String adresse, String ville, String cp) {
 		ContentValues valeurs = new ContentValues();
 		valeurs.put("nom", nom);
+		valeurs.put("prenom", prenom);
+		valeurs.put("adresse", adresse);
+		valeurs.put("ville", ville);
+		valeurs.put("cp", cp);
 		long resultat = bdd.insert("utilisateur", null, valeurs);
 		return resultat;
 	}
@@ -56,6 +60,6 @@ public class UtilisateurDAO {
 	}
 	
 	private Utilisateur cursorToUtilisateur(Cursor curseur) {
-		return new Utilisateur(curseur.getString(0));
+		return new Utilisateur(curseur.getString(0), curseur.getString(1), curseur.getString(2), curseur.getString(3), curseur.getString(4));
 	}
 }
