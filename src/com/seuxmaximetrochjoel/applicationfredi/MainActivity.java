@@ -24,17 +24,24 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	
-		//Récuperation de l'utilisateur
+		// Récupération de l'utilisateur
 		manipBDD = new UtilisateurDAO(this);
 		manipBDD.open();
 		Utilisateur utilisateur = manipBDD.getUtilisateur();
 		manipBDD.close();
 		
+		// Si il est enregistré
+		if (utilisateur != null) {
+			gotoAssociationsActivity(utilisateur.getNom());
+		} else {
+			// Si il n'est pas enregistré, on affiche la vue et on paramètre le bouton
+			setContentView(R.layout.activity_main);
+		}
 	}
 	
 	private void gotoAssociationsActivity(String nomUtilisateur) {
 		Intent intent = new Intent(MainActivity.this, AssociationsActivity.class);
 		intent.putExtra("DATA_NOM", nomUtilisateur);
 		startActivity(intent);
-	}
+	}		
 }
