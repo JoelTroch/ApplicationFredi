@@ -6,5 +6,9 @@
     <string name="enregistrer">Enregistrer</string>
     <string name="title_activity_associations">Associations</string>
     <string name="hello_world">Hello world!</string>
+    <string name="prenom">Prénom :</string>
+    <string name="adresse">Adresse :</string>
+    <string name="ville">Ville :</string>
+    <string name="cp">Code Postal :</string>
 
 </resources>
