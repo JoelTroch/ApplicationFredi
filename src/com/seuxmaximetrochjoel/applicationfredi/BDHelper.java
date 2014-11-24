@@ -10,6 +10,7 @@ public class BDHelper extends SQLiteOpenHelper {
 	// ATTRIBUTS
 	// ====================================================================================================
 	
+	private final String requeteCreationTableAssociation = "CREATE TABLE association(_id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, nom TEXT NOT NULL);";
 	private final String requeteCreationTableUtilisateur = "CREATE TABLE utilisateur(nom TEXT PRIMARY KEY NOT NULL);";
 	
 	// ====================================================================================================
@@ -26,6 +27,7 @@ public class BDHelper extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase bdd) {
+		bdd.execSQL(requeteCreationTableAssociation);
 		bdd.execSQL(requeteCreationTableUtilisateur);
 	}
 	
@@ -34,6 +36,7 @@ public class BDHelper extends SQLiteOpenHelper {
 		/* TODO : Si on a le temps, faire en sorte de conserver les données lors d'une mise à jour de la base
 		 * de données. Ca serait frustant pour l'utilisateur de perdre ses données à cause de ça.
 		 */
+		bdd.execSQL("DROP TABLE association;");
 		bdd.execSQL("DROP TABLE utilisateur;");
 		onCreate(bdd);
 	}
