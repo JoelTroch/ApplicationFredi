@@ -43,8 +43,7 @@ public class UtilisateurDAO {
 	}
 	
 	public Utilisateur getUtilisateur() {
-		// LIMIT 1 recupère que le premier enregistrement (il n'est pas censé en avoir d'autres)
-		Cursor curseur = bdd.rawQuery("SELECT * FROM utilisateur LIMIT 1", null);
+		Cursor curseur = bdd.rawQuery("SELECT * FROM utilisateur", null);
 		// On assume par défaut que l'utilisateur ne s'est pas encore enregistré
 		Utilisateur utilisateur = null;
 		// Il y a un enregistrement, alors on le prend en compte
