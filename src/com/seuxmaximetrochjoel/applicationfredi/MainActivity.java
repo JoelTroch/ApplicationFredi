@@ -1,6 +1,7 @@
 package com.seuxmaximetrochjoel.applicationfredi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,5 +30,11 @@ public class MainActivity extends Activity {
 		Utilisateur utilisateur = manipBDD.getUtilisateur();
 		manipBDD.close();
 		
+	}
+	
+	private void gotoAssociationsActivity(String nomUtilisateur) {
+		Intent intent = new Intent(MainActivity.this, AssociationsActivity.class);
+		intent.putExtra("DATA_NOM", nomUtilisateur);
+		startActivity(intent);
 	}
 }
