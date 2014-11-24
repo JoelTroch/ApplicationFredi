@@ -4,5 +4,7 @@
     <string name="app_name">Application Fredi</string>
     <string name="nom">Nom :</string>
     <string name="enregistrer">Enregistrer</string>
+    <string name="title_activity_associations">Associations</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
