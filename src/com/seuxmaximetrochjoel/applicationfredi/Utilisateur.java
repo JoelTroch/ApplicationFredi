@@ -6,10 +6,15 @@ public class Utilisateur {
 	// ATTRIBUTS
 	// ====================================================================================================
 	
+	@SuppressWarnings("unused")
 	private String nom;
+	@SuppressWarnings("unused")
 	private String prenom;
+	@SuppressWarnings("unused")
 	private String adresse;
+	@SuppressWarnings("unused")
 	private String ville;
+	@SuppressWarnings("unused")
 	private String cp;
 	
 	// ====================================================================================================
@@ -22,13 +27,5 @@ public class Utilisateur {
 		this.adresse = adresse;
 		this.ville = ville;
 		this.cp = cp;
-	}
-	
-	public String getNom() {
-		return this.nom;
-	}
-	
-	public String getPrenom() {
-		return this.prenom;
 	}
 }
