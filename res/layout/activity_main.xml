@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="@string/nom" />
 
     <TextView
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtNom"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="@string/prenom" />
 
     <EditText
@@ -29,6 +29,7 @@
         android:layout_below="@+id/textViewNom"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:layout_marginTop="10dp"
         android:inputType="text" />
 
     <EditText
@@ -38,6 +39,7 @@
         android:layout_below="@+id/textViewPrenom"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:layout_marginTop="10dp"
         android:inputType="text" />
 
         <requestFocus />
@@ -49,6 +51,7 @@
             android:layout_below="@+id/textViewAdresse"
             android:layout_centerHorizontal="true"
             android:ems="10"
+            android:layout_marginTop="10dp"
             android:inputType="text" />
 
         <TextView
@@ -57,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtAdresse"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:text="@string/ville" />
 
         <TextView
@@ -66,17 +69,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtPrenom"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:text="@string/adresse" />
-
-        <EditText
-            android:id="@+id/edtVille"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewVille"
-            android:layout_centerHorizontal="true"
-            android:ems="10"
-            android:inputType="text" />
 
         <TextView
             android:id="@+id/textViewCp"
@@ -84,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtVille"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:text="@string/cp" />
 
         <EditText
@@ -94,6 +88,7 @@
             android:layout_below="@+id/textViewCp"
             android:layout_centerHorizontal="true"
             android:ems="10" 
+            android:layout_marginTop="10dp"
             android:inputType="text" />
 
         <Button
@@ -104,5 +99,15 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:text="@string/enregistrer" />
+
+        <EditText
+            android:id="@+id/edtVille"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewVille"
+            android:ems="10"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:inputType="text" />
 
 </RelativeLayout>

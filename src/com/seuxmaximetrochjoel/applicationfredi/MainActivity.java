@@ -16,7 +16,11 @@ public class MainActivity extends Activity {
 	
 	private Button btnEnregistrer = null;
 	private EditText edtNom = null;
-	private UtilisateurDAO manipBDD = null; 
+	private EditText edtPrenom = null;
+	private EditText edtAdresse = null;
+	private EditText edtVille = null;
+	private EditText edtCp = null;
+	private UtilisateurDAO manipBDD = null;
 	
 	// ====================================================================================================
 	// METHODES
@@ -34,22 +38,26 @@ public class MainActivity extends Activity {
 		
 		// Si il est enregistré
 		if (utilisateur != null) {
-			gotoAssociationsActivity(utilisateur.getNom());
+			gotoAssociationsActivity();
 		} else {
 			// Si il n'est pas enregistré, on affiche la vue et on paramètre le bouton
 			setContentView(R.layout.activity_main);
-			btnEnregistrer = (Button)findViewById(R.id.edtNom);
+			btnEnregistrer = (Button)findViewById(R.id.btnEnregistrer);
 			btnEnregistrer.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					//Récupération du champs Texte et on vérifie si il y a une saisie
 					edtNom = (EditText)findViewById(R.id.edtNom);
+					edtPrenom = (EditText)findViewById(R.id.edtPrenom);
+					edtAdresse = (EditText)findViewById(R.id.edtAdresse);
+					edtVille = (EditText)findViewById(R.id.edtVille);
+					edtCp = (EditText)findViewById(R.id.edtCp);
 					if(edtNom.getText().length() > 0) {
 						//Création de l'utilisateur
 						manipBDD.open();
-						manipBDD.createUtilisateur(edtNom.getText().toString());
+						manipBDD.createUtilisateur(edtNom.getText().toString(),edtPrenom.getText().toString(),edtAdresse.getText().toString(),edtVille.getText().toString(),edtCp.getText().toString());
 						manipBDD.close();
-						gotoAssociationsActivity(edtNom.getText().toString());
+						gotoAssociationsActivity();
 					} else {
 						Toast.makeText(MainActivity.this, "Vous devez saisir un nom!", Toast.LENGTH_SHORT).show();
 					}
@@ -58,9 +66,8 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	private void gotoAssociationsActivity(String nomUtilisateur) {
+	private void gotoAssociationsActivity() {
 		Intent intent = new Intent(MainActivity.this, AssociationsActivity.class);
-		intent.putExtra("DATA_NOM", nomUtilisateur);
 		startActivity(intent);
 	}		
 }
