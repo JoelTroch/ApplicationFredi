@@ -27,6 +27,10 @@
             android:name=".AssociationsActivity"
             android:label="@string/title_activity_associations" >
         </activity>
+        <activity
+            android:name=".CreerAssociationActivity"
+            android:label="@string/title_activity_creer_association" >
+        </activity>
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@
     <string name="adresse">Adresse :</string>
     <string name="ville">Ville :</string>
     <string name="cp">Code Postal :</string>
-    <string name="btnAjoutAssoc">Ajouter association</string>
+    <string name="ajouter_association">Ajouter association</string>
+    <string name="title_activity_creer_association">Créer une association</string>
 
 </resources>
