@@ -10,7 +10,7 @@ public class BDHelper extends SQLiteOpenHelper {
 	// ATTRIBUTS
 	// ====================================================================================================
 	
-	private final String requeteCreationTableAssociation = "CREATE TABLE association(_id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, nom TEXT NOT NULL);";
+	private final String requeteCreationTableAssociation = "CREATE TABLE association(_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nom TEXT NOT NULL);";
 	private final String requeteCreationTableUtilisateur = "CREATE TABLE utilisateur(nom TEXT PRIMARY KEY NOT NULL, prenom TEXT NOT NULL, adresse TEXT NOT NULL, ville TEXT NOT NULL, cp TEXT NOT NULL);";
 	
 	// ====================================================================================================
