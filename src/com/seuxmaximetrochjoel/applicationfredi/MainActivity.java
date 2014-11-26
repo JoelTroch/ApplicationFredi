@@ -46,20 +46,23 @@ public class MainActivity extends Activity {
 			btnEnregistrer.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					//Récupération du champs Texte et on vérifie si il y a une saisie
+					// Récupération des champs de texte et on vérifie si au moins un champ est vide
 					edtNom = (EditText)findViewById(R.id.edtNom);
 					edtPrenom = (EditText)findViewById(R.id.edtPrenom);
 					edtAdresse = (EditText)findViewById(R.id.edtAdresse);
 					edtVille = (EditText)findViewById(R.id.edtVille);
 					edtCp = (EditText)findViewById(R.id.edtCp);
-					if(edtNom.getText().length() > 0) {
-						//Création de l'utilisateur
+					
+					if (edtNom.getText().length() > 0 && edtPrenom.getText().length() > 0 && edtAdresse.getText().length() > 0 &&
+							edtVille.getText().length() > 0 && edtCp.getText().length() > 0) {
+						// Création de l'utilisateur
 						manipBDD.open();
-						manipBDD.createUtilisateur(edtNom.getText().toString(),edtPrenom.getText().toString(),edtAdresse.getText().toString(),edtVille.getText().toString(),edtCp.getText().toString());
+						manipBDD.createUtilisateur(edtNom.getText().toString(), edtPrenom.getText().toString(),
+								edtAdresse.getText().toString(), edtVille.getText().toString(), edtCp.getText().toString());
 						manipBDD.close();
 						gotoAssociationsActivity();
 					} else {
-						Toast.makeText(MainActivity.this, "Vous devez saisir un nom!", Toast.LENGTH_SHORT).show();
+						Toast.makeText(MainActivity.this, "Vous devez saisir toutes les informations !", Toast.LENGTH_SHORT).show();
 					}
 				}
 			});
