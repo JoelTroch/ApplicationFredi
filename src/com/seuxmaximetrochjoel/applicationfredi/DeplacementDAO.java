@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
@@ -55,6 +56,10 @@ public class DeplacementDAO {
 		valeurs.put("idAssociation", idAssociation);
 		long resultat = bdd.insert("deplacement", null, valeurs);
 		return resultat;
+	}
+	
+	public int deleteAllDeplacementsByIdAssociation(long idAssociation) {
+		return bdd.delete("deplacement", "idAssociation = ?", new String[] { String.valueOf(idAssociation) });
 	}
 	
 	public int deleteDeplacementById(long id) {
