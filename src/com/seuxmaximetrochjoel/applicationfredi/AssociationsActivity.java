@@ -53,6 +53,15 @@ public class AssociationsActivity extends Activity {
 		listeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listeAssociationsAffichage);
 		listViewAssociations.setAdapter(listeAdapter);
 		registerForContextMenu(listViewAssociations);
+		listViewAssociations.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+				Intent intent = new Intent(AssociationsActivity.this, DeplacementsActivity.class);
+				intent.putExtra("EXTRA_ASSOCIATION_ID", listeAssociations.get(position).getId());
+				intent.putExtra("EXTRA_ASSOCIATION_NOM", listeAssociations.get(position).getNom());
+				startActivity(intent);
+			}
+		});
 	}
 	
 	private void miseAJourListe() {
