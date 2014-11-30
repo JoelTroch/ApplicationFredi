@@ -7,10 +7,13 @@
 
     <!-- Chaînes Application Fredi -->
     <string name="adresse">Adresse :</string>
+    <string name="ajouter">Ajouter</string>
     <string name="ajouter_association">Ajouter une association</string>
+    <string name="calculer">Calculer</string>
     <string name="cp">Code Postal :</string>
     <string name="enregistrer">Enregistrer</string>
     <string name="nom">Nom :</string>
+    <string name="pour">Pour :</string>
     <string name="prenom">Prénom :</string>
     <string name="title_activity_associations">Associations</string>
     <string name="title_activity_creer_association">Créer une association</string>
