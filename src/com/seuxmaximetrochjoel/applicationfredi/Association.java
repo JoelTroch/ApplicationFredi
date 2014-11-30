@@ -24,13 +24,6 @@ public class Association {
 		this.cp = cp;
 	}
 	
-	public Association(String nom, String adresse, String ville, String cp) {
-		this.nom = nom;
-		this.adresse = adresse;
-		this.ville = ville;
-		this.cp = cp;
-	}
-	
 	public long getId() {
 		return this.id;
 	}
