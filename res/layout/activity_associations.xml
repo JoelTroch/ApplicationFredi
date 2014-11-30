@@ -4,15 +4,6 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <Button
-        android:id="@+id/btnAjouterAssociation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12.5dp"
-        android:text="@string/ajouter_association" />
-
     <ListView
         android:id="@+id/listViewAssociations"
         android:layout_width="wrap_content"
@@ -23,7 +14,15 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="12.5dp" >
-    </ListView>
+        android:layout_marginBottom="12.5dp" />
+    
+    <Button
+        android:id="@+id/btnAjouterAssociation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12.5dp"
+        android:text="@string/ajouter_association" />
 
 </RelativeLayout>
