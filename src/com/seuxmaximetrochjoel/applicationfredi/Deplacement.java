@@ -96,48 +96,4 @@ public class Deplacement {
 	public long getIdAssociation() {
 		return this.idAssociation;
 	}
-	
-	public void setId(long id) {
-		this.id = id;
-	}
-	
-	public void setDateJour(int dateJour) {
-		this.dateJour = dateJour;
-	}
-	
-	public void setDateMois(int dateMois) {
-		this.dateMois = dateMois;
-	}
-	
-	public void setDateAnnee(int dateAnnee) {
-		this.dateAnnee = dateAnnee;
-	}
-	
-	public void setMotif(String motif) {
-		this.motif = motif;
-	}
-	
-	public void setIntituleTrajet(String intituleTrajet) {
-		this.intituleTrajet = intituleTrajet;
-	}
-	
-	public void setNbKm(float nbKm) {
-		this.nbKm = nbKm;
-	}
-	
-	public void setMontantPeage(float montantPeage) {
-		this.montantPeage = montantPeage;
-	}
-	
-	public void setMontantRepas(float montantRepas) {
-		this.montantRepas = montantRepas;
-	}
-	
-	public void setMontantHebergement(float montantHebergement) {
-		this.montantHebergement = montantHebergement;
-	}
-	
-	public void setIdAssociation(Association associationConcernee) {
-		this.idAssociation = associationConcernee.getId();
-	}
 }
