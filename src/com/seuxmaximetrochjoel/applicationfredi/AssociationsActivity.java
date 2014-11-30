@@ -103,4 +103,13 @@ public class AssociationsActivity extends Activity {
 		}
 		return true;
 	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		// On efface la liste et on la met à jour
+		listeAssociationsAffichage.clear();
+		miseAJourListe();
+		listeAdapter.notifyDataSetChanged();
+	}
 }
