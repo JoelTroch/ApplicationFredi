@@ -24,21 +24,6 @@ public class Deplacement {
 	// ====================================================================================================
 	
 	public Deplacement(long id, int dateJour, int dateMois, int dateAnnee, String motif, String intituleTrajet,
-			float nbKm, float montantPeage, float montantRepas, float montantHebergement) {
-		this.id = id;
-		this.dateJour = dateJour;
-		this.dateMois = dateMois;
-		this.dateAnnee = dateAnnee;
-		this.motif = motif;
-		this.intituleTrajet = intituleTrajet;
-		this.nbKm = nbKm;
-		this.montantPeage = montantPeage;
-		this.montantRepas = montantRepas;
-		this.montantHebergement = montantHebergement;
-		this.idAssociation = -1;
-	}
-	
-	public Deplacement(long id, int dateJour, int dateMois, int dateAnnee, String motif, String intituleTrajet,
 			float nbKm, float montantPeage, float montantRepas, float montantHebergement, long idAssociation) {
 		this.id = id;
 		this.dateJour = dateJour;
