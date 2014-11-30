@@ -3,6 +3,7 @@ package com.seuxmaximetrochjoel.applicationfredi;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -13,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class AssociationsActivity extends Activity {
 	
@@ -39,7 +41,8 @@ public class AssociationsActivity extends Activity {
 		btnAjouterAssociation.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				// TODO : Afficher l'activité "Créer une association"
+				Intent intent = new Intent(AssociationsActivity.this, CreerAssociationActivity.class);
+				startActivity(intent);
 			}
 		});
 		
@@ -76,9 +79,27 @@ public class AssociationsActivity extends Activity {
 	public boolean onContextItemSelected(MenuItem item) {
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
 		if (item.getItemId() == 0) { // Modifier
-			// TODO : Afficher l'activité "Créer une association" en mode modification
+			Intent intent = new Intent(AssociationsActivity.this, CreerAssociationActivity.class);
+			intent.putExtra("EXTRA_ID", listeAssociations.get(info.position).getId());
+			intent.putExtra("EXTRA_NOM", listeAssociations.get(info.position).getNom());
+			intent.putExtra("EXTRA_ADRESSE", listeAssociations.get(info.position).getAdresse());
+			intent.putExtra("EXTRA_VILLE", listeAssociations.get(info.position).getVille());
+			intent.putExtra("EXTRA_CP", listeAssociations.get(info.position).getCP());
+			startActivity(intent);
 		} else { // Effacer
-			// TODO : Effacer tous les déplacements de l'associations et ensuite effacer cette dernière
+			DeplacementDAO manipBDDDeplacements = new DeplacementDAO(this);
+			manipBDDDeplacements.open();
+			manipBDDDeplacements.deleteAllDeplacementsByIdAssociation(listeAssociations.get(info.position).getId());
+			manipBDDDeplacements.close();
+			manipBDD.open();
+			manipBDD.deleteAssociationById(listeAssociations.get(info.position).getId());
+			manipBDD.close();
+			// On efface la liste et on la met à jour
+			listeAssociationsAffichage.clear();
+			miseAJourListe();
+			listeAdapter.notifyDataSetChanged();
+			// Message de confirmation
+			Toast.makeText(this, "Suppression effectuée !", Toast.LENGTH_SHORT).show();
 		}
 		return true;
 	}
