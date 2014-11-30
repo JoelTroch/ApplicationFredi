@@ -24,6 +24,13 @@ public class Association {
 		this.cp = cp;
 	}
 	
+	public Association(String nom, String adresse, String ville, String cp) {
+		this.nom = nom;
+		this.adresse = adresse;
+		this.ville = ville;
+		this.cp = cp;
+	}
+	
 	public long getId() {
 		return this.id;
 	}
@@ -42,25 +49,5 @@ public class Association {
 	
 	public String getCP() {
 		return this.cp;
-	}
-	
-	public void setId(long id) {
-		this.id = id;
-	}
-	
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-	
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
-	
-	public void setCP(String cp) {
-		this.cp = cp;
 	}
 }
