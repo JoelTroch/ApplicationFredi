@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Chaînes Android -->
     <string name="app_name">Application Fredi</string>
-    <string name="nom">Nom :</string>
-    <string name="enregistrer">Enregistrer</string>
-    <string name="title_activity_associations">Associations</string>
     <string name="hello_world">Hello world!</string>
-    <string name="prenom">Prénom :</string>
+
+    <!-- Chaînes Application Fredi -->
     <string name="adresse">Adresse :</string>
-    <string name="ville">Ville :</string>
+    <string name="ajouter_association">Ajouter une association</string>
     <string name="cp">Code Postal :</string>
-    <string name="ajouter_association">Ajouter association</string>
+    <string name="enregistrer">Enregistrer</string>
+    <string name="nom">Nom :</string>
+    <string name="prenom">Prénom :</string>
+    <string name="title_activity_associations">Associations</string>
     <string name="title_activity_creer_association">Créer une association</string>
+    <string name="title_activity_modifier_association">Modifier une association</string>
+    <string name="ville">Ville :</string>
 
 </resources>
