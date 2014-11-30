@@ -50,7 +50,7 @@
         android:layout_below="@+id/edtPrenom"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-            android:text="@string/adresse" />        
+        android:text="@string/adresse" />        
 
     <EditText
         android:id="@+id/edtAdresse"
