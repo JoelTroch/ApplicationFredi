@@ -41,7 +41,8 @@
         </activity>
         <activity
             android:name=".CalculFraisActivity"
-            android:label="@string/title_activity_calcul_frais" >
+            android:label="@string/title_activity_calcul_frais"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
         </activity>
     </application>
 
