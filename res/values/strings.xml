@@ -10,8 +10,16 @@
     <string name="ajouter">Ajouter</string>
     <string name="ajouter_association">Ajouter une association</string>
     <string name="calculer">Calculer</string>
+    <string name="changer_date">Changer la date</string>
     <string name="cp">Code Postal :</string>
+    <string name="date">Date :</string>
     <string name="enregistrer">Enregistrer</string>
+    <string name="intitule_trajet">Intitulé trajet :</string>
+    <string name="kilometrage">Kilomètrage :</string>
+    <string name="montant_hebergement">Montant hébergement :</string>
+    <string name="montant_peage">Montant péage :</string>
+    <string name="montant_repas">Montant repas :</string>
+    <string name="motif">Motif :</string>
     <string name="nom">Nom :</string>
     <string name="pour">Pour :</string>
     <string name="prenom">Prénom :</string>

@@ -1,12 +1,159 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}" >
+    tools:context="${relativePackage}.${activityClass}" xmlns:android1="http://schemas.android.com/apk/res/android">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
     <TextView
+        android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/date" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btnDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewDate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/changer_date" />
+
+	<TextView
+	    android:id="@+id/textViewMotif"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:layout_below="@+id/btnDate"
+	    android:layout_centerHorizontal="true"
+	    android:text="@string/motif" />
+	
+	<EditText
+	    android:id="@+id/edtMotif"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/textViewMotif"
+	    android:layout_centerHorizontal="true"
+	    android:ems="10"
+	    android:layout_marginTop="10dp"
+	    android:inputType="text" >
+
+		<requestFocus />
+
+	</EditText>
+	
+	    <TextView
+	        android:id="@+id/textViewIntituleTrajet"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/edtMotif"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/intitule_trajet" />
+	
+	    <EditText
+	        android:id="@+id/edtIntituleTrajet"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/textViewIntituleTrajet"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:ems="10"
+	        android:inputType="text" />
+	
+	    <TextView
+	        android:id="@+id/textViewKm"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/edtIntituleTrajet"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/kilometrage" />
+	
+	    <EditText
+	        android:id="@+id/edtNbKm"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textViewKm"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:ems="10"
+	        android:inputType="numberDecimal" />
+	    
+	    <TextView
+	        android:id="@+id/textViewMontantPeage"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/edtNbKm"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/montant_peage" />
+	    
+	    <EditText
+	        android:id="@+id/edtMontantPeage"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textViewMontantPeage"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:ems="10"
+	        android:inputType="number" />
+	    
+	    <TextView
+	        android:id="@+id/textViewMontantRepas"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/edtMontantPeage"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/montant_repas" />
+	    
+	    <EditText
+	        android:id="@+id/edtMontantRepas"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textViewMontantRepas"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:ems="10"
+	        android:inputType="numberDecimal" />
+	    
+	    <TextView
+	        android:id="@+id/textViewMontantHebergement"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/edtMontantRepas"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/montant_hebergement" />
+	    
+	    <EditText
+	        android:id="@+id/edtMontantHebergement"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textViewMontantHebergement"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:ems="10"
+	        android:inputType="numberDecimal" />
+	
+		<Button
+	        android:id="@+id/btnEnregistrer"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/edtMontantHebergement"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="30dp"
+	        android:text="@string/enregistrer" />
+		
+		</RelativeLayout>
+
+</ScrollView>
