@@ -72,11 +72,11 @@ public class CalculFraisActivity extends Activity {
                 listeFraisAffichage.add("Association : " + intent.getStringExtra("EXTRA_ASSOCIATION_NOM"));
                 listeFraisAffichage.add("Nombre de déplacements : " + String.valueOf(listeDeplacements.size()));
                 listeFraisAffichage.add("Nombre de kilomètres total : " + String.format("%.02f", kmTotal) + " km");
-                listeFraisAffichage.add("Montant kilomètres total : " + String.format("%.02f", montantKilometres) + "€");
-                listeFraisAffichage.add("Montant péage total : " + String.format("%.02f", montantPeageTotal) + "€");
-                listeFraisAffichage.add("Montant repas total : " + String.format("%.02f", montantRepasTotal) + "€");
-                listeFraisAffichage.add("Montant hébergement total : " + String.format("%.02f", montantHebergementTotal) + "€");
-                listeFraisAffichage.add("Total des frais : " + String.format("%.02f", totalFrais) + "€");
+                listeFraisAffichage.add("Montant kilomètres total : " + String.format("%.02f", montantKilometres) + " €");
+                listeFraisAffichage.add("Montant péage total : " + String.format("%.02f", montantPeageTotal) + " €");
+                listeFraisAffichage.add("Montant repas total : " + String.format("%.02f", montantRepasTotal) + " €");
+                listeFraisAffichage.add("Montant hébergement total : " + String.format("%.02f", montantHebergementTotal) + " €");
+                listeFraisAffichage.add("Total des frais : " + String.format("%.02f", totalFrais) + " €");
                 ArrayAdapter<String> listeAdapter = new ArrayAdapter<String>(CalculFraisActivity.this, android.R.layout.simple_list_item_1, listeFraisAffichage);
             	ListView listViewFrais = (ListView)findViewById(R.id.listViewFrais);
                 listViewFrais.setAdapter(listeAdapter);

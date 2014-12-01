@@ -1,9 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        
     <TextView
         android:id="@+id/textViewNom"
         android:layout_width="wrap_content"
@@ -19,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewNom"
         android:layout_centerHorizontal="true"
-        android:ems="10"
+        android:ems="13"
         android:layout_marginTop="10dp"
         android:inputType="text" />
     <requestFocus />
@@ -39,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewPrenom"
         android:layout_centerHorizontal="true"
-        android:ems="10"
+        android:ems="13"
         android:layout_marginTop="10dp"
         android:inputType="text" />
 
@@ -58,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewAdresse"
         android:layout_centerHorizontal="true"
-        android:ems="10"
+        android:ems="13"
         android:layout_marginTop="10dp"
         android:inputType="text" />
 
@@ -76,7 +81,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_below="@+id/textViewVille"
-		android:ems="10"
+		android:ems="13"
 		android:layout_marginTop="10dp"
 		android:layout_centerHorizontal="true"
 		android:inputType="text" />
@@ -97,7 +102,7 @@
 		android:layout_below="@+id/textViewCp"
 		android:layout_centerHorizontal="true"
 		android:layout_marginTop="10dp"
-		android:ems="10"
+		android:ems="13"
 		android:inputType="number" />
 
 	<Button
@@ -108,5 +113,7 @@
 		android:layout_centerHorizontal="true"
 		android:layout_marginTop="30dp"
 		android:text="@string/enregistrer" />
-
-</RelativeLayout>
+	
+	</RelativeLayout>
+	
+</ScrollView>

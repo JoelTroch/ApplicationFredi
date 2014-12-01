@@ -42,7 +42,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_below="@+id/textViewMotif"
 	    android:layout_centerHorizontal="true"
-	    android:ems="10"
+	    android:ems="13"
 	    android:layout_marginTop="10dp"
 	    android:inputType="text" >
 
@@ -66,7 +66,7 @@
 	        android:layout_below="@id/textViewIntituleTrajet"
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
-	        android:ems="10"
+	        android:ems="13"
 	        android:inputType="text" />
 	
 	    <TextView
@@ -85,7 +85,7 @@
 	        android:layout_below="@+id/textViewKm"
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
-	        android:ems="10"
+	        android:ems="13"
 	        android:inputType="numberDecimal" />
 	    
 	    <TextView
@@ -104,7 +104,7 @@
 	        android:layout_below="@+id/textViewMontantPeage"
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
-	        android:ems="10"
+	        android:ems="13"
 	        android:inputType="number" />
 	    
 	    <TextView
@@ -123,7 +123,7 @@
 	        android:layout_below="@+id/textViewMontantRepas"
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
-	        android:ems="10"
+	        android:ems="13"
 	        android:inputType="numberDecimal" />
 	    
 	    <TextView
@@ -142,7 +142,7 @@
 	        android:layout_below="@+id/textViewMontantHebergement"
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
-	        android:ems="10"
+	        android:ems="13"
 	        android:inputType="numberDecimal" />
 	
 		<Button
