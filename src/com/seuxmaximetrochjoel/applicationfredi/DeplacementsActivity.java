@@ -48,7 +48,9 @@ public class DeplacementsActivity extends Activity {
 		btnAjouterDeplacement.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				// TODO : Faire l'activité "Créer nn déplacement"
+				Intent intent2 = new Intent(DeplacementsActivity.this, CreerDeplacementActivity.class);
+				intent2.putExtra("EXTRA_ASSOCIATION_ID", intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
+				startActivity(intent2);
 			}
 		});
 		
