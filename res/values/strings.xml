@@ -24,6 +24,7 @@
     <string name="pour">Pour :</string>
     <string name="prenom">Prénom :</string>
     <string name="title_activity_associations">Associations</string>
+    <string name="title_activity_calcul_frais">Frais remboursables</string>
     <string name="title_activity_creer_association">Créer une association</string>
     <string name="title_activity_creer_deplacement">Créer un déplacement</string>
     <string name="title_activity_deplacements">Déplacements</string>

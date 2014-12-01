@@ -39,6 +39,10 @@
             android:name=".CreerDeplacementActivity"
             android:label="@string/title_activity_creer_deplacement" >
         </activity>
+        <activity
+            android:name=".CalculFraisActivity"
+            android:label="@string/title_activity_calcul_frais" >
+        </activity>
     </application>
 
 </manifest>
