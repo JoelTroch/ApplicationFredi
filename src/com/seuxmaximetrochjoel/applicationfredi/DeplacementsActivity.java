@@ -95,7 +95,19 @@ public class DeplacementsActivity extends Activity {
 	public boolean onContextItemSelected(MenuItem item) {
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
 		if (item.getItemId() == 0) { // Modifier
-			// TODO : Modifier déplacement
+			Intent intent2 = new Intent(DeplacementsActivity.this, CreerDeplacementActivity.class);
+			intent2.putExtra("EXTRA_ASSOCIATION_ID", intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
+			intent2.putExtra("EXTRA_ID", listeDeplacements.get(info.position).getId());
+			intent2.putExtra("EXTRA_DATE_JOUR", listeDeplacements.get(info.position).getDateJour());
+			intent2.putExtra("EXTRA_DATE_MOIS", listeDeplacements.get(info.position).getDateMois());
+			intent2.putExtra("EXTRA_DATE_ANNEE", listeDeplacements.get(info.position).getDateAnnee());
+			intent2.putExtra("EXTRA_MOTIF", listeDeplacements.get(info.position).getMotif());
+			intent2.putExtra("EXTRA_INTITULE_TRAJET", listeDeplacements.get(info.position).getIntituleTrajet());
+			intent2.putExtra("EXTRA_NB_KM", listeDeplacements.get(info.position).getNbKm());
+			intent2.putExtra("EXTRA_MONTANT_PEAGE", listeDeplacements.get(info.position).getMontantPeage());
+			intent2.putExtra("EXTRA_MONTANT_REPAS", listeDeplacements.get(info.position).getMontantRepas());
+			intent2.putExtra("EXTRA_MONTANT_HEBERGEMENT", listeDeplacements.get(info.position).getMontantHebergement());
+			startActivity(intent2);
 		} else { // Effacer
 			manipBDD.open();
 			manipBDD.deleteDeplacementById(listeDeplacements.get(info.position).getId());
