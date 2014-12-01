@@ -59,7 +59,10 @@ public class DeplacementsActivity extends Activity {
 		btnCalculerFrais.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				// TODO : Faire l'activité "Calcul frais"
+				Intent intent2 = new Intent(DeplacementsActivity.this, CalculFraisActivity.class);
+				intent2.putExtra("EXTRA_ASSOCIATION_ID", intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
+				intent2.putExtra("EXTRA_ASSOCIATION_NOM", intent.getStringExtra("EXTRA_ASSOCIATION_NOM"));
+				startActivity(intent2);
 			}
 		});
 		
