@@ -95,7 +95,8 @@ public class CreerDeplacementActivity extends Activity {
 			public void onClick(View v) {
 				// On vérifie si au moins un champ est vide
 				if (edtMotif.getText().length() > 0 && edtIntituleTrajet.getText().length() > 0 &&
-						edtNbKm.getText().length() > 0 && edtMontantPeage.getText().length() > 0) {
+						edtNbKm.getText().length() > 0 && edtMontantPeage.getText().length() > 0 &&
+						edtMontantRepas.getText().length() > 0 && edtMontantHebergement.getText().length() > 0) {
 					// Création ou mise à jour de l'association
 					manipBDD.open();
 					if (intent.getLongExtra("EXTRA_ID", -1) == -1) {
