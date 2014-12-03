@@ -42,6 +42,8 @@ public class UtilisateurDAO {
 		valeurs.put("adresse", adresse);
 		valeurs.put("ville", ville);
 		valeurs.put("cp", cp);
+		valeurs.put("tutoAssociationsFait", 0);
+		valeurs.put("tutoDeplacementsFait", 0);
 		long resultat = bdd.insert("utilisateur", null, valeurs);
 		return resultat;
 	}
@@ -59,7 +61,22 @@ public class UtilisateurDAO {
 		return utilisateur;
 	}
 	
+	public long setTutoAssociationsFait() {
+		ContentValues valeurs = new ContentValues();
+		valeurs.put("tutoAssociationsFait", 1);
+		long resultat = bdd.update("utilisateur", valeurs, null, null);
+		return resultat;
+	}
+	
+	public long setTutoDeplacementsFait() {
+		ContentValues valeurs = new ContentValues();
+		valeurs.put("tutoDeplacementsFait", 1);
+		long resultat = bdd.update("utilisateur", valeurs, null, null);
+		return resultat;
+	}
+	
 	private Utilisateur cursorToUtilisateur(Cursor curseur) {
-		return new Utilisateur(curseur.getString(0), curseur.getString(1), curseur.getString(2), curseur.getString(3), curseur.getString(4));
+		return new Utilisateur(curseur.getString(0), curseur.getString(1), curseur.getString(2),
+				curseur.getString(3), curseur.getString(4), curseur.getLong(5), curseur.getLong(6));
 	}
 }

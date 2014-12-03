@@ -21,7 +21,8 @@ public class BDHelper extends SQLiteOpenHelper {
 			+ "FOREIGN KEY(idAssociation) REFERENCES association(_id));";
 	
 	private final String requeteCreationTableUtilisateur = "CREATE TABLE utilisateur(nom TEXT PRIMARY KEY NOT NULL,"
-			+ "prenom TEXT NOT NULL, adresse TEXT NOT NULL, ville TEXT NOT NULL, cp TEXT NOT NULL);";
+			+ "prenom TEXT NOT NULL, adresse TEXT NOT NULL, ville TEXT NOT NULL, cp TEXT NOT NULL,"
+			+ "tutoAssociationsFait BOOL NOT NULL, tutoDeplacementsFait BOOL NOT NULL);";
 	
 	// ====================================================================================================
 	// CONSTRUCTEUR

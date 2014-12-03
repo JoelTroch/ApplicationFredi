@@ -3,13 +3,16 @@ package com.seuxmaximetrochjoel.applicationfredi;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,7 +28,9 @@ public class AssociationsActivity extends Activity {
 	private ArrayAdapter<String> listeAdapter = null;
 	private ArrayList<Association> listeAssociations = null;
 	private ArrayList<String> listeAssociationsAffichage = new ArrayList<String>();
-	private AssociationDAO manipBDD = null;
+	private AssociationDAO manipAssociationBDD = null;
+	private Dialog dialogTuto = null;
+	private UtilisateurDAO manipUtilisateurBDD = null;
 	
 	// ====================================================================================================
 	// METHODES
@@ -48,7 +53,7 @@ public class AssociationsActivity extends Activity {
 		
 		// Initialisation de la liste d'affichage, mise à jour de son contenu, affichage et paramétrage menu contextuel
 		ListView listViewAssociations = (ListView)findViewById(R.id.listViewAssociations);
-		manipBDD = new AssociationDAO(this);
+		manipAssociationBDD = new AssociationDAO(this);
 		miseAJourListe();
 		listeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listeAssociationsAffichage);
 		listViewAssociations.setAdapter(listeAdapter);
@@ -66,9 +71,9 @@ public class AssociationsActivity extends Activity {
 	
 	private void miseAJourListe() {
 		// On récupère toutes les associations et on prépare la liste d'affichage
-		manipBDD.open();
-		listeAssociations = manipBDD.getAllAssociations();
-		manipBDD.close();
+		manipAssociationBDD.open();
+		listeAssociations = manipAssociationBDD.getAllAssociations();
+		manipAssociationBDD.close();
 		for (Association uneAssociation : listeAssociations)
 			listeAssociationsAffichage.add(uneAssociation.getNom());
 	}
@@ -100,9 +105,9 @@ public class AssociationsActivity extends Activity {
 			manipBDDDeplacements.open();
 			manipBDDDeplacements.deleteAllDeplacementsByIdAssociation(listeAssociations.get(info.position).getId());
 			manipBDDDeplacements.close();
-			manipBDD.open();
-			manipBDD.deleteAssociationById(listeAssociations.get(info.position).getId());
-			manipBDD.close();
+			manipAssociationBDD.open();
+			manipAssociationBDD.deleteAssociationById(listeAssociations.get(info.position).getId());
+			manipAssociationBDD.close();
 			// On efface la liste et on la met à jour
 			listeAssociationsAffichage.clear();
 			miseAJourListe();
@@ -120,5 +125,26 @@ public class AssociationsActivity extends Activity {
 		listeAssociationsAffichage.clear();
 		miseAJourListe();
 		listeAdapter.notifyDataSetChanged();
+		
+		// Tutoriel
+		manipUtilisateurBDD = new UtilisateurDAO(this);
+		manipUtilisateurBDD.open();
+		if (listeAssociations.size() > 0 && manipUtilisateurBDD.getUtilisateur().getTutoAssociationsFait() == 0) {
+			dialogTuto = new Dialog(this);
+			dialogTuto.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			dialogTuto.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+			dialogTuto.setContentView(R.layout.coach_mark_associations);
+			dialogTuto.setCanceledOnTouchOutside(true);
+			View dialogTutoMasterView = dialogTuto.findViewById(R.id.coach_mark_master_view);
+			dialogTutoMasterView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialogTuto.dismiss();
+				}
+			});
+			manipUtilisateurBDD.setTutoAssociationsFait();
+			dialogTuto.show();
+		}
+		manipUtilisateurBDD.close();
 	}
 }

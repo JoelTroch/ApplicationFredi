@@ -29,6 +29,12 @@
     <string name="title_activity_deplacements">Déplacements</string>
     <string name="title_activity_modifier_association">Modifier une association</string>
     <string name="title_activity_modifier_deplacement">Modifier un déplacement</string>
+    <string name="tuto_associations_clic_court">Court = Gérer ses déplacements.</string>
+    <string name="tuto_associations_clic_long">Long = Modifie ou efface l\'association.</string>
+    <string name="tuto_associations_intitule">Clic sur association dans la liste :</string>
+    <string name="tuto_deplacements_clic_long">Long = Modifie ou efface le déplacement.</string>
+    <string name="tuto_deplacements_intitule">CLic sur déplacement dans la liste :</string>
+    <string name="tuto_fermer">Appuyez sur l\'écran pour fermer.</string>
     <string name="ville">Ville :</string>
 
 </resources>
