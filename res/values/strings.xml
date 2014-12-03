@@ -10,7 +10,7 @@
     <string name="ajouter_association">Ajouter une association</string>
     <string name="calculer">Calculer</string>
     <string name="changer_date">Changer la date</string>
-    <string name="cp">Code Postal :</string>
+    <string name="cp">Code postal :</string>
     <string name="date">Date :</string>
     <string name="enregistrer">Enregistrer</string>
     <string name="intitule_trajet">Intitulé trajet :</string>
@@ -23,12 +23,12 @@
     <string name="pour">Pour :</string>
     <string name="prenom">Prénom :</string>
     <string name="title_activity_associations">Associations</string>
+    <string name="title_activity_calcul_frais">Frais remboursables</string>
     <string name="title_activity_creer_association">Créer une association</string>
     <string name="title_activity_creer_deplacement">Créer un déplacement</string>
     <string name="title_activity_deplacements">Déplacements</string>
     <string name="title_activity_modifier_association">Modifier une association</string>
     <string name="title_activity_modifier_deplacement">Modifier un déplacement</string>
     <string name="ville">Ville :</string>
-    <string name="title_activity_calcul_frais">Frais remboursables</string>
 
 </resources>
