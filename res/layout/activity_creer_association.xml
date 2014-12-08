@@ -26,12 +26,11 @@
         android:layout_centerHorizontal="true"
         android:ems="13"
         android:layout_marginTop="10dp"
-        android:inputType="text" >
+        android:inputType="textFilter"
+        android:digits="@+string/filtrage_caracteres" />
 
         <requestFocus />
 
-	    </EditText>
-	
 	    <TextView
 	        android:id="@+id/textViewAdresse"
 	        android:layout_width="wrap_content"
@@ -49,7 +48,8 @@
 	        android:layout_centerHorizontal="true"
 	        android:ems="13"
 	        android:layout_marginTop="10dp"
-	        android:inputType="text" />
+	        android:inputType="textFilter"
+        android:digits="@+string/filtrage_adresse_caracteres" />
 	
 	    <TextView
 	        android:id="@+id/textViewVille"
@@ -68,7 +68,8 @@
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
 	        android:ems="13"
-	        android:inputType="text" />
+	        android:inputType="textFilter"
+	        android:digits="@+string/filtrage_caracteres" />
 	
 	    <TextView
 	        android:id="@+id/textViewCp"
