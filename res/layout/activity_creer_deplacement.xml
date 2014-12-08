@@ -86,7 +86,8 @@
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
 	        android:ems="13"
-	        android:inputType="numberDecimal" />
+	        android:inputType="numberDecimal"
+	        android:text="@string/zero" />
 	    
 	    <TextView
 	        android:id="@+id/textViewMontantPeage"
@@ -105,7 +106,8 @@
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
 	        android:ems="13"
-	        android:inputType="number" />
+	        android:inputType="number"
+	        android:text="@string/zero" />
 	    
 	    <TextView
 	        android:id="@+id/textViewMontantRepas"
@@ -124,7 +126,8 @@
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
 	        android:ems="13"
-	        android:inputType="numberDecimal" />
+	        android:inputType="numberDecimal"
+	        android:text="@string/zero" />
 	    
 	    <TextView
 	        android:id="@+id/textViewMontantHebergement"
@@ -143,7 +146,8 @@
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
 	        android:ems="13"
-	        android:inputType="numberDecimal" />
+	        android:inputType="numberDecimal"
+	        android:text="@string/zero" />
 	
 		<Button
 	        android:id="@+id/btnEnregistrer"

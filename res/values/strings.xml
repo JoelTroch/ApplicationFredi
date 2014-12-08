@@ -36,5 +36,6 @@
     <string name="tuto_deplacements_intitule">CLic sur déplacement dans la liste :</string>
     <string name="tuto_fermer">Appuyez sur l\'écran pour fermer.</string>
     <string name="ville">Ville :</string>
+    <string name="zero">0</string>
 
 </resources>
