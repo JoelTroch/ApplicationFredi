@@ -63,13 +63,13 @@ public class CreerDeplacementActivity extends Activity {
 			edtMontantHebergement.setText(String.valueOf(intent.getFloatExtra("EXTRA_MONTANT_HEBERGEMENT", 0)));
 			
 			jour = intent.getIntExtra("EXTRA_DATE_JOUR", Calendar.DAY_OF_MONTH);
-			mois = intent.getIntExtra("EXTRA_DATE_MOIS", Calendar.MONTH);
+			mois = intent.getIntExtra("EXTRA_DATE_MOIS", Calendar.MONTH) + 1;
 			annee = intent.getIntExtra("EXTRA_DATE_ANNEE", Calendar.YEAR);
 			
 			setTitle(R.string.title_activity_modifier_deplacement);
 		} else {
 			jour = c.get(Calendar.DAY_OF_MONTH);
-			mois = c.get(Calendar.MONTH);
+			mois = c.get(Calendar.MONTH) + 1;
 			annee = c.get(Calendar.YEAR);
 		}
 		
