@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
 						manipBDD.close();
 						gotoAssociationsActivity();
 					} else {
-						Toast.makeText(MainActivity.this, "Vous devez saisir toutes les informations !", Toast.LENGTH_SHORT).show();
+						Toast.makeText(MainActivity.this, getString(R.string.saisir_toutes_les_infos), Toast.LENGTH_SHORT).show();
 					}
 				}
 			});

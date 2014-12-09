@@ -84,8 +84,8 @@ public class AssociationsActivity extends Activity {
 			// Ajout des actions au menu contextuel
 			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
 			menu.setHeaderTitle(listeAssociationsAffichage.get(info.position));
-			menu.add(Menu.NONE, 0, 0, "Modifier");
-			menu.add(Menu.NONE, 1, 1, "Effacer");
+			menu.add(Menu.NONE, 0, 0, getString(R.string.modifier));
+			menu.add(Menu.NONE, 1, 1, getString(R.string.effacer));
 		}
 	}
 	
@@ -113,7 +113,7 @@ public class AssociationsActivity extends Activity {
 			miseAJourListe();
 			listeAdapter.notifyDataSetChanged();
 			// Message de confirmation
-			Toast.makeText(this, "Suppression effectuée !", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, getString(R.string.suppression_effectuee), Toast.LENGTH_SHORT).show();
 		}
 		return true;
 	}

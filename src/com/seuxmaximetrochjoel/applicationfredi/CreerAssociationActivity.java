@@ -67,7 +67,7 @@ public class CreerAssociationActivity extends Activity {
 					manipBDD.close();
 					CreerAssociationActivity.this.finish();
 				} else {
-					Toast.makeText(CreerAssociationActivity.this, "Vous devez saisir toutes les informations !", Toast.LENGTH_SHORT).show();
+					Toast.makeText(CreerAssociationActivity.this, getString(R.string.saisir_toutes_les_infos), Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

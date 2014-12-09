@@ -118,7 +118,7 @@ public class CreerDeplacementActivity extends Activity {
 					manipBDD.close();
 					CreerDeplacementActivity.this.finish();
 				} else {
-					Toast.makeText(CreerDeplacementActivity.this, "Vous devez saisir toutes les informations !", Toast.LENGTH_SHORT).show();
+					Toast.makeText(CreerDeplacementActivity.this, getString(R.string.saisir_toutes_les_infos), Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

@@ -35,8 +35,8 @@ public class CalculFraisActivity extends Activity {
 		
 		// Dialogue qui demande le tarif au kilomètre des trajets
 		dialogPrixKm = new AlertDialog.Builder(this);
-		dialogPrixKm.setTitle("Prix par kilomètre parcouru");
-		dialogPrixKm.setMessage("Veuillez saisir le prix d\'un kilomètre pour les trajets.");
+		dialogPrixKm.setTitle(getString(R.string.calcul_frais_prix_kilometre_titre));
+		dialogPrixKm.setMessage(getString(R.string.calcul_frais_prix_kilometre_contenu));
 		edtDialogPrixKm = new EditText(this);
 		edtDialogPrixKm.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 		dialogPrixKm.setView(edtDialogPrixKm);
@@ -72,19 +72,19 @@ public class CalculFraisActivity extends Activity {
 	                
 	                // Affichage des frais
 	            	ArrayList<String> listeFraisAffichage = new ArrayList<String>();
-	                listeFraisAffichage.add("Association : " + intent.getStringExtra("EXTRA_ASSOCIATION_NOM"));
-	                listeFraisAffichage.add("Nombre de déplacements : " + String.valueOf(listeDeplacements.size()));
-	                listeFraisAffichage.add("Nombre de kilomètres total : " + String.format("%.02f", kmTotal) + " km");
-	                listeFraisAffichage.add("Montant kilomètres total : " + String.format("%.02f", montantKilometres) + " €");
-	                listeFraisAffichage.add("Montant péage total : " + String.format("%.02f", montantPeageTotal) + " €");
-	                listeFraisAffichage.add("Montant repas total : " + String.format("%.02f", montantRepasTotal) + " €");
-	                listeFraisAffichage.add("Montant hébergement total : " + String.format("%.02f", montantHebergementTotal) + " €");
-	                listeFraisAffichage.add("Total des frais : " + String.format("%.02f", totalFrais) + " €");
+	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_association) + " " + intent.getStringExtra("EXTRA_ASSOCIATION_NOM"));
+	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_nombre_deplacements) + " " + String.valueOf(listeDeplacements.size()));
+	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_nombre_kilometres) + " " + String.format("%.02f", kmTotal) + " km");
+	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_montant_kilometres) + " " + String.format("%.02f", montantKilometres) + " €");
+	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_montant_peage) + " " + String.format("%.02f", montantPeageTotal) + " €");
+	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_montant_repas) + " " + String.format("%.02f", montantRepasTotal) + " €");
+	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_montant_hebergement) + " " + String.format("%.02f", montantHebergementTotal) + " €");
+	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_montant_total) + " " + String.format("%.02f", totalFrais) + " €");
 	                ArrayAdapter<String> listeAdapter = new ArrayAdapter<String>(CalculFraisActivity.this, android.R.layout.simple_list_item_1, listeFraisAffichage);
 	            	ListView listViewFrais = (ListView)findViewById(R.id.listViewFrais);
 	                listViewFrais.setAdapter(listeAdapter);
             	} else {
-            		Toast.makeText(CalculFraisActivity.this, "Veuillez saisir une valeur", Toast.LENGTH_LONG).show();
+            		Toast.makeText(CalculFraisActivity.this, getString(R.string.saisir_une_valeur), Toast.LENGTH_LONG).show();
             		CalculFraisActivity.this.finish();
             	}
             }
