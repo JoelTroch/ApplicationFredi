@@ -13,6 +13,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/**
+ * Code pour l'activité "Calcul des frais".
+ * @author Maxime Seux
+ *
+ */
 public class CalculFraisActivity extends Activity {
 	
 	// ====================================================================================================
@@ -33,28 +38,31 @@ public class CalculFraisActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calcul_frais);
 		
-		// Dialogue qui demande le tarif au kilomètre des trajets
+		// Dialogue qui demande le tarif au kilomètre des trajets.
 		dialogPrixKm = new AlertDialog.Builder(this);
 		dialogPrixKm.setTitle(getString(R.string.calcul_frais_prix_kilometre_titre));
 		dialogPrixKm.setMessage(getString(R.string.calcul_frais_prix_kilometre_contenu));
+		
 		edtDialogPrixKm = new EditText(this);
 		edtDialogPrixKm.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+		
 		dialogPrixKm.setView(edtDialogPrixKm);
 		dialogPrixKm.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+			
             public void onClick(DialogInterface dialog, int whichButton) {
-            	// Contrôle de saisie
+            	// Contrôle de saisie.
             	if (edtDialogPrixKm.getText().length() > 0) {
 	            	float prixKm = 0;
 	                prixKm = Float.valueOf(edtDialogPrixKm.getText().toString());
 	                
-	                // Récupération des déplacements de l'association concernée
+	                // Récupération des déplacements de l'association concernée.
 	                intent = getIntent();
 	                manipBDD = new DeplacementDAO(CalculFraisActivity.this);
 	                manipBDD.open(true);
 	                ArrayList<Deplacement> listeDeplacements = manipBDD.getAllDeplacementsByIdAssociation(intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
 	                manipBDD.close();
 	                
-	                // Calcul des frais
+	                // Calcul des frais.
 	                float kmTotal = 0;
 	                float montantKilometres = 0;
 	                float montantPeageTotal = 0;
@@ -70,7 +78,7 @@ public class CalculFraisActivity extends Activity {
 	                montantKilometres = kmTotal * prixKm;
 	                totalFrais = montantKilometres + montantPeageTotal + montantRepasTotal + montantHebergementTotal;
 	                
-	                // Affichage des frais
+	                // Affichage des frais.
 	            	ArrayList<String> listeFraisAffichage = new ArrayList<String>();
 	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_association) + " " + intent.getStringExtra("EXTRA_ASSOCIATION_NOM"));
 	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_nombre_deplacements) + " " + String.valueOf(listeDeplacements.size()));
@@ -80,6 +88,7 @@ public class CalculFraisActivity extends Activity {
 	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_montant_repas) + " " + String.format("%.02f", montantRepasTotal) + " €");
 	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_montant_hebergement) + " " + String.format("%.02f", montantHebergementTotal) + " €");
 	                listeFraisAffichage.add(getString(R.string.calcul_frais_rapport_montant_total) + " " + String.format("%.02f", totalFrais) + " €");
+	                
 	                ArrayAdapter<String> listeAdapter = new ArrayAdapter<String>(CalculFraisActivity.this, android.R.layout.simple_list_item_1, listeFraisAffichage);
 	            	ListView listViewFrais = (ListView)findViewById(R.id.listViewFrais);
 	                listViewFrais.setAdapter(listeAdapter);
@@ -89,13 +98,17 @@ public class CalculFraisActivity extends Activity {
             	}
             }
         });
-		// BUGFIX : Si l'utilisateur annule la saisie, on évite une activité blanche
+		
+		// BUGFIX : Si l'utilisateur annule la saisie, on évite une activité blanche.
 		dialogPrixKm.setOnCancelListener(new DialogInterface.OnCancelListener() {
+			
 			@Override
 			public void onCancel(DialogInterface dialog) {
 				finish();
 			}
+			
 		});
+		
 		dialogPrixKm.show();
 	}
 }

@@ -20,6 +20,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Code pour l'activité "Déplacements".
+ * @author Maxime Seux
+ *
+ */
 public class DeplacementsActivity extends Activity {
 	
 	// ====================================================================================================
@@ -43,25 +48,28 @@ public class DeplacementsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_deplacements);
 		
-		// Mise à jour nom association
+		// Mise à jour du nom de l'association concernée.
 		intent = getIntent();
 		TextView textViewAssociation = (TextView)findViewById(R.id.textViewAssociation);
 		textViewAssociation.setText(getString(R.string.pour) + " " + intent.getStringExtra("EXTRA_ASSOCIATION_NOM"));
 		
-		// Paramétrage du bouton "Ajouter"
+		// Paramétrage du bouton "Ajouter".
 		Button btnAjouterDeplacement = (Button)findViewById(R.id.btnAjouterDeplacement);
 		btnAjouterDeplacement.setOnClickListener(new View.OnClickListener() {
+			
 			@Override
 			public void onClick(View arg0) {
 				Intent intent2 = new Intent(DeplacementsActivity.this, CreerDeplacementActivity.class);
 				intent2.putExtra("EXTRA_ASSOCIATION_ID", intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
 				startActivity(intent2);
 			}
+			
 		});
 		
-		// Paramétrage du bouton "Calculer"
+		// Paramétrage du bouton "Calculer".
 		Button btnCalculerFrais = (Button)findViewById(R.id.btnCalculerFrais);
 		btnCalculerFrais.setOnClickListener(new View.OnClickListener() {
+			
 			@Override
 			public void onClick(View arg0) {
 				Intent intent2 = new Intent(DeplacementsActivity.this, CalculFraisActivity.class);
@@ -69,11 +77,14 @@ public class DeplacementsActivity extends Activity {
 				intent2.putExtra("EXTRA_ASSOCIATION_NOM", intent.getStringExtra("EXTRA_ASSOCIATION_NOM"));
 				startActivity(intent2);
 			}
+			
 		});
 		
 		// Initialisation de la liste d'affichage, mise à jour de son contenu, affichage et paramétrage menu contextuel
 		ListView liste = (ListView)findViewById(R.id.listViewDeplacements);
 		manipDeplacementBDD = new DeplacementDAO(this);
+		
+		// Mise à jour de la liste, affichage et gestion du menu contextuel.
 		miseAJourListe();
 		listeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listeDeplacementsAffichage);
 		liste.setAdapter(listeAdapter);
@@ -89,6 +100,15 @@ public class DeplacementsActivity extends Activity {
 			listeDeplacementsAffichage.add(unDeplacement.getMotif());
 	}
 	
+	/**
+	 * Surchage de la méthode "onCreateContextMenu" de la classe "Activity" d'Android.
+	 * Cette procédure événementielle est appelée à chaque fois qu'un menu contextuel est sur le point d'être
+	 * créé.
+	 * @param ContextMenu Le menu contextuel en cours de création.
+	 * @param View La vue auquel le menu contextuel est en cours de création.
+	 * @param ContextMenuInfo Informations supplémentaires au sujet de "l'objet" du menu contextuel.
+	 * @see http://developer.android.com/reference/android/app/Activity.html#onCreateContextMenu(android.view.ContextMenu, android.view.View, android.view.ContextMenu.ContextMenuInfo)
+	 */
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		if (v.getId() == R.id.listViewDeplacements) {
@@ -99,10 +119,18 @@ public class DeplacementsActivity extends Activity {
 		}
 	}
 	
+	/**
+	 * Surcharge de la méthode "onContextItemSelected" de la classe "Activity" d'Android.
+	 * Cette procédure événementielle est appelée à chaque fois qu'un "objet" dans un menu contextuel est
+	 * sélectionné.
+	 * @param "L'objet" du menu contextuel sélectionné.
+	 * @see http://developer.android.com/reference/android/app/Activity.html#onContextItemSelected(android.view.MenuItem)
+	 */
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
-		if (item.getItemId() == 0) { // Modifier
+		if (item.getItemId() == 0) {
+			// On ouvre l'activité "Créer un déplacement" en "mode modification".
 			Intent intent2 = new Intent(DeplacementsActivity.this, CreerDeplacementActivity.class);
 			intent2.putExtra("EXTRA_ASSOCIATION_ID", intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
 			intent2.putExtra("EXTRA_ID", listeDeplacements.get(info.position).getId());
@@ -116,29 +144,38 @@ public class DeplacementsActivity extends Activity {
 			intent2.putExtra("EXTRA_MONTANT_REPAS", listeDeplacements.get(info.position).getMontantRepas());
 			intent2.putExtra("EXTRA_MONTANT_HEBERGEMENT", listeDeplacements.get(info.position).getMontantHebergement());
 			startActivity(intent2);
-		} else { // Effacer
+		} else {
+			// Effacement du déplacement.
 			manipDeplacementBDD.open(false);
 			manipDeplacementBDD.deleteDeplacementById(listeDeplacements.get(info.position).getId());
 			manipDeplacementBDD.close();
-			// On efface la liste et on la met à jour
+			
+			// Mise à jour de la liste.
 			listeDeplacementsAffichage.clear();
 			miseAJourListe();
 			listeAdapter.notifyDataSetChanged();
-			// Message de confirmation
+			
+			// Message de confirmation.
 			Toast.makeText(this, getString(R.string.suppression_effectuee), Toast.LENGTH_SHORT).show();
 		}
 		return true;
 	}
 	
+	/**
+	 * Surcharge de la méthode "onResume" de la classe "Activity" d'Android.
+	 * Cette procédure événementielle est appelée à chaque fois que l'activité réapparait.
+	 * @see http://developer.android.com/reference/android/app/Activity.html#onResume()
+	 */
 	@Override
 	public void onResume() {
 		super.onResume();
-		// On efface la liste et on la met à jour
+		
+		// Mise à jour de la liste.
 		listeDeplacementsAffichage.clear();
 		miseAJourListe();
 		listeAdapter.notifyDataSetChanged();
 		
-		// Tutoriel
+		// Gestion du tutoriel.
 		manipUtilisateurBDD = new UtilisateurDAO(this);
 		manipUtilisateurBDD.open(true);
 		if (listeDeplacements.size() > 0 && manipUtilisateurBDD.getUtilisateur().getTutoDeplacementsFait() == 0) {
@@ -147,12 +184,15 @@ public class DeplacementsActivity extends Activity {
 			dialogTuto.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 			dialogTuto.setContentView(R.layout.coach_mark_deplacements);
 			dialogTuto.setCanceledOnTouchOutside(true);
+			
 			View dialogTutoMasterView = dialogTuto.findViewById(R.id.coach_mark_master_view);
 			dialogTutoMasterView.setOnClickListener(new View.OnClickListener() {
+				
 				@Override
 				public void onClick(View v) {
 					dialogTuto.dismiss();
 				}
+				
 			});
 			manipUtilisateurBDD.setTutoDeplacementsFait();
 			dialogTuto.show();

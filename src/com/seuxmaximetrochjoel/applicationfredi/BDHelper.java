@@ -4,6 +4,12 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * Classe responsable de la création et mise à jour de la base de données.
+ * Elle hérite de la classe "SQLiteOpenHelper" d'Android.
+ * @author Joël Troch
+ *
+ */
 public class BDHelper extends SQLiteOpenHelper {
 	
 	// ====================================================================================================
@@ -28,6 +34,10 @@ public class BDHelper extends SQLiteOpenHelper {
 	// CONSTRUCTEUR
 	// ====================================================================================================
 	
+	/**
+	 * Constructeur de la classe BDHelper.
+	 * @param context Contexte Android.
+	 */
 	public BDHelper(Context context) {
 		super(context, "appliFrediBDD.db", null, 1);
 	}
@@ -36,6 +46,12 @@ public class BDHelper extends SQLiteOpenHelper {
 	// METHODES
 	// ====================================================================================================
 	
+	/**
+	 * Surchage de la méthode "onCreate" de la classe "SQLiteOpenHelper" d'Android.
+	 * Cette procédure événementielle est appelée lors de la création de la base de données pour la première
+	 * utilisation.
+	 * @param SQLiteDatabase Base de données concernée.
+	 */
 	@Override
 	public void onCreate(SQLiteDatabase bdd) {
 		bdd.execSQL(requeteCreationTableAssociation);
@@ -43,14 +59,16 @@ public class BDHelper extends SQLiteOpenHelper {
 		bdd.execSQL(requeteCreationTableUtilisateur);
 	}
 	
+	/**
+	 * Surchage de la méthode "onUpgrade" de la classe "SQLiteOpenHelper" d'Android.
+	 * Cette procédure événementielle est appelée lorsque qu'une mise à jour de la structure de la base de
+	 * données est nécessaire. Elle peut être appelée lors d'une mise à jour de l'application.
+	 * @param SQLiteDatabase Base de données concernée.
+	 * @param ancienneVersion Ancienne version de la base de données.
+	 * @param nouvelleVersion Nouvelle version de la base de données.
+	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase bdd, int ancienneVersion, int nouvelleVersion) {
-		/* TODO : Si on a le temps, faire en sorte de conserver les données lors d'une mise à jour de la base
-		 * de données. Ca serait frustant pour l'utilisateur de perdre ses données à cause de ça.
-		 */
-		bdd.execSQL("DROP TABLE deplacement;");
-		bdd.execSQL("DROP TABLE association;");
-		bdd.execSQL("DROP TABLE utilisateur;");
-		onCreate(bdd);
+		// Pas de mise à jour à faire pour le moment.
 	}
 }

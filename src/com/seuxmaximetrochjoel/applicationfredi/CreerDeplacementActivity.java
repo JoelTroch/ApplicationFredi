@@ -14,6 +14,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Code pour l'activité "Créer un déplacement"
+ * @author Maxime Seux
+ *
+ */
 public class CreerDeplacementActivity extends Activity {
 	
 	// ====================================================================================================
@@ -43,7 +48,7 @@ public class CreerDeplacementActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_creer_deplacement);
 		
-		// Récupération des champs de texte et de l'Intent
+		// Initialisation des éléments du layout.
 		edtMotif = (EditText)findViewById(R.id.edtMotif);
 		edtIntituleTrajet = (EditText)findViewById(R.id.edtIntituleTrajet);
 		edtNbKm = (EditText)findViewById(R.id.edtNbKm);
@@ -52,7 +57,7 @@ public class CreerDeplacementActivity extends Activity {
 		edtMontantHebergement = (EditText)findViewById(R.id.edtMontantHebergement);
 		intent = getIntent();
 		
-		// Si c'est une mise à jour, on remplit les champs
+		// Est-ce qu'on met à jour un déplacement existant ? Si c'est le cas on pré-remplit les champs.
 		Calendar c = Calendar.getInstance();
 		if (intent.getLongExtra("EXTRA_ID", -1) != -1) {
 			edtMotif.setText(intent.getStringExtra("EXTRA_MOTIF"));
@@ -68,36 +73,41 @@ public class CreerDeplacementActivity extends Activity {
 			
 			setTitle(R.string.title_activity_modifier_deplacement);
 		} else {
+			// On définit la date d'aujourd'hui par défaut.
 			jour = c.get(Calendar.DAY_OF_MONTH);
 			mois = c.get(Calendar.MONTH) + 1;
 			annee = c.get(Calendar.YEAR);
 		}
 		
-		// Mise à jour date
+		// Mise à jour de la date.
 		textViewDate = (TextView)findViewById(R.id.textViewDate);
 		textViewDate.setText(getString(R.string.date) + " " + jour + "/" + mois + "/" + annee);
 		
-		// Paramétrage du bouton "Changer la date"
+		// Paramétrage du bouton "Changer la date".
 		btnDate = (Button)findViewById(R.id.btnDate);
 		btnDate.setOnClickListener(new View.OnClickListener() {
+			
 			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View arg0) {
 				showDialog(999);
 			}
+			
 		});
 		
-		// Initialisation des manipulations BDD et du bouton
+		// Initialisation des manipulations BDD et du bouton "Enregistrer".
 		manipBDD = new DeplacementDAO(this);
 		Button btnEnregistrer = (Button)findViewById(R.id.btnEnregistrer);
 		btnEnregistrer.setOnClickListener(new View.OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
-				// On vérifie si au moins un champ est vide
+				// Contrôle de saisie.
 				if (edtMotif.getText().length() > 0 && edtIntituleTrajet.getText().length() > 0 &&
 						edtNbKm.getText().length() > 0 && edtMontantPeage.getText().length() > 0 &&
 						edtMontantRepas.getText().length() > 0 && edtMontantHebergement.getText().length() > 0) {
-					// Création ou mise à jour de l'association
+					
+					// Création ou mise à jour de l'association.
 					manipBDD.open(false);
 					if (intent.getLongExtra("EXTRA_ID", -1) == -1) {
 						manipBDD.createDeplacement(jour, mois, annee, edtMotif.getText().toString(),
@@ -115,12 +125,13 @@ public class CreerDeplacementActivity extends Activity {
 								Float.valueOf(edtMontantHebergement.getText().toString()),
 								intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
 					}
+					
 					manipBDD.close();
 					CreerDeplacementActivity.this.finish();
-				} else {
+				} else
 					Toast.makeText(CreerDeplacementActivity.this, getString(R.string.saisir_toutes_les_infos), Toast.LENGTH_SHORT).show();
-				}
 			}
+			
 		});
 	}
 	
@@ -134,6 +145,7 @@ public class CreerDeplacementActivity extends Activity {
 	}
 	
 	private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+		
 		@Override
 		public void onDateSet(DatePicker vue, int anneeChoisie, int moisChoisi, int jourChoisi) {
 			annee = anneeChoisie;
@@ -141,5 +153,6 @@ public class CreerDeplacementActivity extends Activity {
 			jour = jourChoisi;
 			textViewDate.setText(getString(R.string.date) + " " + jour + "/" + mois + "/" + annee);
 		}
+		
 	};
 }
