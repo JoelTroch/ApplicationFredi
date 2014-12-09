@@ -98,7 +98,7 @@ public class CreerDeplacementActivity extends Activity {
 						edtNbKm.getText().length() > 0 && edtMontantPeage.getText().length() > 0 &&
 						edtMontantRepas.getText().length() > 0 && edtMontantHebergement.getText().length() > 0) {
 					// Création ou mise à jour de l'association
-					manipBDD.open();
+					manipBDD.open(false);
 					if (intent.getLongExtra("EXTRA_ID", -1) == -1) {
 						manipBDD.createDeplacement(jour, mois, annee, edtMotif.getText().toString(),
 								edtIntituleTrajet.getText().toString(), Float.valueOf(edtNbKm.getText().toString()),

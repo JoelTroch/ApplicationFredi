@@ -50,7 +50,7 @@ public class CalculFraisActivity extends Activity {
 	                // Récupération des déplacements de l'association concernée
 	                intent = getIntent();
 	                manipBDD = new DeplacementDAO(CalculFraisActivity.this);
-	                manipBDD.open();
+	                manipBDD.open(true);
 	                ArrayList<Deplacement> listeDeplacements = manipBDD.getAllDeplacementsByIdAssociation(intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
 	                manipBDD.close();
 	                

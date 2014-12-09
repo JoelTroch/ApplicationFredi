@@ -56,7 +56,7 @@ public class CreerAssociationActivity extends Activity {
 				if (edtNom.getText().length() > 0 && edtAdresse.getText().length() > 0 && edtVille.getText().length() > 0 &&
 						edtCp.getText().length() > 0) {
 					// Création ou mise à jour de l'association
-					manipBDD.open();
+					manipBDD.open(false);
 					if (intent.getLongExtra("EXTRA_ID", -1) == -1) {
 						manipBDD.createAssociation(edtNom.getText().toString(), edtAdresse.getText().toString(),
 								edtVille.getText().toString(), edtCp.getText().toString());

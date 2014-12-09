@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 	
 		// Récupération de l'utilisateur
 		manipBDD = new UtilisateurDAO(this);
-		manipBDD.open();
+		manipBDD.open(true);
 		Utilisateur utilisateur = manipBDD.getUtilisateur();
 		manipBDD.close();
 		
@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 					if (edtNom.getText().length() > 0 && edtPrenom.getText().length() > 0 && edtAdresse.getText().length() > 0 &&
 							edtVille.getText().length() > 0 && edtCp.getText().length() > 0) {
 						// Création de l'utilisateur
-						manipBDD.open();
+						manipBDD.open(false);
 						manipBDD.createUtilisateur(edtNom.getText().toString(), edtPrenom.getText().toString(),
 								edtAdresse.getText().toString(), edtVille.getText().toString(), edtCp.getText().toString());
 						manipBDD.close();

@@ -82,7 +82,7 @@ public class DeplacementsActivity extends Activity {
 	
 	private void miseAJourListe() {
 		// On récupère toutes les associations et on prépare la liste d'affichage
-		manipDeplacementBDD.open();
+		manipDeplacementBDD.open(true);
 		listeDeplacements = manipDeplacementBDD.getAllDeplacementsByIdAssociation(intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
 		manipDeplacementBDD.close();
 		for (Deplacement unDeplacement : listeDeplacements)
@@ -117,7 +117,7 @@ public class DeplacementsActivity extends Activity {
 			intent2.putExtra("EXTRA_MONTANT_HEBERGEMENT", listeDeplacements.get(info.position).getMontantHebergement());
 			startActivity(intent2);
 		} else { // Effacer
-			manipDeplacementBDD.open();
+			manipDeplacementBDD.open(false);
 			manipDeplacementBDD.deleteDeplacementById(listeDeplacements.get(info.position).getId());
 			manipDeplacementBDD.close();
 			// On efface la liste et on la met à jour
@@ -140,7 +140,7 @@ public class DeplacementsActivity extends Activity {
 		
 		// Tutoriel
 		manipUtilisateurBDD = new UtilisateurDAO(this);
-		manipUtilisateurBDD.open();
+		manipUtilisateurBDD.open(true);
 		if (listeDeplacements.size() > 0 && manipUtilisateurBDD.getUtilisateur().getTutoDeplacementsFait() == 0) {
 			dialogTuto = new Dialog(this);
 			dialogTuto.requestWindowFeature(Window.FEATURE_NO_TITLE);

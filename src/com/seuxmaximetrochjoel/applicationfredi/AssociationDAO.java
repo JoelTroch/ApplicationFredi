@@ -25,8 +25,8 @@ public class AssociationDAO {
 		bddHelper = new BDHelper(context);
 	}
 	
-	public void open() throws SQLException {
-		bdd = bddHelper.getWritableDatabase();
+	public void open(Boolean lectureSeule) throws SQLException {
+		bdd = lectureSeule ? bddHelper.getReadableDatabase() : bddHelper.getWritableDatabase();
 	}
 	
 	public void close() {

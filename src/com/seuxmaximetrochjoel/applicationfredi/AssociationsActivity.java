@@ -71,7 +71,7 @@ public class AssociationsActivity extends Activity {
 	
 	private void miseAJourListe() {
 		// On récupère toutes les associations et on prépare la liste d'affichage
-		manipAssociationBDD.open();
+		manipAssociationBDD.open(true);
 		listeAssociations = manipAssociationBDD.getAllAssociations();
 		manipAssociationBDD.close();
 		for (Association uneAssociation : listeAssociations)
@@ -102,10 +102,10 @@ public class AssociationsActivity extends Activity {
 			startActivity(intent);
 		} else { // Effacer
 			DeplacementDAO manipBDDDeplacements = new DeplacementDAO(this);
-			manipBDDDeplacements.open();
+			manipBDDDeplacements.open(false);
 			manipBDDDeplacements.deleteAllDeplacementsByIdAssociation(listeAssociations.get(info.position).getId());
 			manipBDDDeplacements.close();
-			manipAssociationBDD.open();
+			manipAssociationBDD.open(false);
 			manipAssociationBDD.deleteAssociationById(listeAssociations.get(info.position).getId());
 			manipAssociationBDD.close();
 			// On efface la liste et on la met à jour
@@ -128,7 +128,7 @@ public class AssociationsActivity extends Activity {
 		
 		// Tutoriel
 		manipUtilisateurBDD = new UtilisateurDAO(this);
-		manipUtilisateurBDD.open();
+		manipUtilisateurBDD.open(true);
 		if (listeAssociations.size() > 0 && manipUtilisateurBDD.getUtilisateur().getTutoAssociationsFait() == 0) {
 			dialogTuto = new Dialog(this);
 			dialogTuto.requestWindowFeature(Window.FEATURE_NO_TITLE);
