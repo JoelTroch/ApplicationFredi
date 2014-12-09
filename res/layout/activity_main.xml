@@ -9,115 +9,117 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
         
-    <TextView
-        android:id="@+id/textViewNom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="@string/nom" />
-    
-    <EditText
-        android:id="@+id/edtNom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewNom"
-        android:layout_centerHorizontal="true"
-        android:ems="13"
-        android:layout_marginTop="10dp"
-        android:inputType="textFilter"
-        android:digits="@+string/filtrage_caracteres" />
-    
-    <requestFocus />
+	    <TextView
+	        android:id="@+id/textViewNom"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/nom" />
+	    
+	    <EditText
+	        android:id="@+id/edtNom"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textViewNom"
+	        android:layout_centerHorizontal="true"
+	        android:ems="13"
+	        android:layout_marginTop="10dp"
+	        android:inputType="textFilter"
+	        android:digits="@+string/filtrage_caracteres" >
 
-    <TextView
-        android:id="@+id/textViewPrenom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edtNom"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="@string/prenom" />
+	        <requestFocus />
 
-    <EditText
-        android:id="@+id/edtPrenom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewPrenom"
-        android:layout_centerHorizontal="true"
-        android:ems="13"
-        android:layout_marginTop="10dp"
-        android:inputType="textFilter"
-        android:digits="@+string/filtrage_caracteres" />
-
-	<TextView
-        android:id="@+id/textViewAdresse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edtPrenom"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="@string/adresse" />        
-
-    <EditText
-        android:id="@+id/edtAdresse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewAdresse"
-        android:layout_centerHorizontal="true"
-        android:ems="13"
-        android:layout_marginTop="10dp"
-        android:inputType="textFilter"
-        android:digits="@+string/filtrage_adresse_caracteres" />
-
-    <TextView
-        android:id="@+id/textViewVille"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edtAdresse"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="@string/ville" />
-    
-    <EditText
-		android:id="@+id/edtVille"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/textViewVille"
-		android:ems="13"
-		android:layout_marginTop="10dp"
-		android:layout_centerHorizontal="true"
-		android:inputType="textFilter"
-        android:digits="@+string/filtrage_caracteres" />
-
-	<TextView
-		android:id="@+id/textViewCp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/edtVille"
-		android:layout_centerHorizontal="true"
-		android:layout_marginTop="10dp"
-		android:text="@string/cp" />
-
-	<EditText
-		android:id="@+id/edtCp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/textViewCp"
-		android:layout_centerHorizontal="true"
-		android:layout_marginTop="10dp"
-		android:ems="13"
-		android:inputType="number" />
-
-	<Button
-		android:id="@+id/btnEnregistrer"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/edtCp"
-		android:layout_centerHorizontal="true"
-		android:layout_marginTop="30dp"
-		android:text="@string/enregistrer" />
+	    </EditText>
+	
+	    <TextView
+	        android:id="@+id/textViewPrenom"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/edtNom"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/prenom" />
+	
+	    <EditText
+	        android:id="@+id/edtPrenom"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textViewPrenom"
+	        android:layout_centerHorizontal="true"
+	        android:ems="13"
+	        android:layout_marginTop="10dp"
+	        android:inputType="textFilter"
+	        android:digits="@+string/filtrage_caracteres" />
+	
+		<TextView
+	        android:id="@+id/textViewAdresse"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/edtPrenom"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/adresse" />        
+	
+	    <EditText
+	        android:id="@+id/edtAdresse"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textViewAdresse"
+	        android:layout_centerHorizontal="true"
+	        android:ems="13"
+	        android:layout_marginTop="10dp"
+	        android:inputType="textFilter"
+	        android:digits="@+string/filtrage_caracteres_adresses" />
+	
+	    <TextView
+	        android:id="@+id/textViewVille"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/edtAdresse"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/ville" />
+	    
+	    <EditText
+			android:id="@+id/edtVille"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/textViewVille"
+			android:ems="13"
+			android:layout_marginTop="10dp"
+			android:layout_centerHorizontal="true"
+			android:inputType="textFilter"
+	        android:digits="@+string/filtrage_caracteres" />
+	
+		<TextView
+			android:id="@+id/textViewCp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/edtVille"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="10dp"
+			android:text="@string/cp" />
+	
+		<EditText
+			android:id="@+id/edtCp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/textViewCp"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="10dp"
+			android:ems="13"
+			android:inputType="number" />
+	
+		<Button
+			android:id="@+id/btnEnregistrer"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/edtCp"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="30dp"
+			android:text="@string/enregistrer" />
 	
 	</RelativeLayout>
 	

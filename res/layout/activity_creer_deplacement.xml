@@ -9,45 +9,47 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textViewDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="@string/date" />
-
-    <Button
-        android:id="@+id/btnDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewDate"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="@string/changer_date" />
-
-	<TextView
-	    android:id="@+id/textViewMotif"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_marginTop="10dp"
-	    android:layout_below="@+id/btnDate"
-	    android:layout_centerHorizontal="true"
-	    android:text="@string/motif" />
+	    <TextView
+	        android:id="@+id/textViewDate"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/date" />
 	
-	<EditText
-	    android:id="@+id/edtMotif"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_below="@+id/textViewMotif"
-	    android:layout_centerHorizontal="true"
-	    android:ems="13"
-	    android:layout_marginTop="10dp"
-	    android:inputType="textFilter"
-        android:digits="@+string/filtrage_caracteres" />
+	    <Button
+	        android:id="@+id/btnDate"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textViewDate"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/changer_date" />
+	
+		<TextView
+		    android:id="@+id/textViewMotif"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:layout_below="@+id/btnDate"
+		    android:layout_centerHorizontal="true"
+		    android:text="@string/motif" />
+		
+		<EditText
+		    android:id="@+id/edtMotif"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_below="@+id/textViewMotif"
+		    android:layout_centerHorizontal="true"
+		    android:ems="13"
+		    android:layout_marginTop="10dp"
+		    android:inputType="textFilter"
+	        android:digits="@+string/filtrage_caracteres" >
 
-		<requestFocus />
+			<requestFocus />
+
+		</EditText>
 
 	    <TextView
 	        android:id="@+id/textViewIntituleTrajet"

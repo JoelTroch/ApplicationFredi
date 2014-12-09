@@ -14,7 +14,7 @@
     <string name="date">Date :</string>
     <string name="enregistrer">Enregistrer</string>
     <string name="filtrage_caracteres">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZéèêëçàù" "</string>
-    <string name="filtrage_adresse_caracteres">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZéèêëçàù0123456789" "</string>
+    <string name="filtrage_caracteres_adresses">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZéèêëçàù0123456789" "</string>
     <string name="intitule_trajet">Intitulé trajet :</string>
     <string name="kilometrage">Kilométrage :</string>
     <string name="montant_hebergement">Montant hébergement :</string>

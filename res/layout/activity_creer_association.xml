@@ -9,27 +9,29 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textViewNom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="@string/nom" />
+	    <TextView
+	        android:id="@+id/textViewNom"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/nom" />
+	
+	    <EditText
+	        android:id="@+id/edtNom"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textViewNom"
+	        android:layout_centerHorizontal="true"
+	        android:ems="13"
+	        android:layout_marginTop="10dp"
+	        android:inputType="textFilter"
+	        android:digits="@+string/filtrage_caracteres" >
 
-    <EditText
-        android:id="@+id/edtNom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewNom"
-        android:layout_centerHorizontal="true"
-        android:ems="13"
-        android:layout_marginTop="10dp"
-        android:inputType="textFilter"
-        android:digits="@+string/filtrage_caracteres" />
+	        <requestFocus />
 
-        <requestFocus />
+	    </EditText>
 
 	    <TextView
 	        android:id="@+id/textViewAdresse"
@@ -49,7 +51,7 @@
 	        android:ems="13"
 	        android:layout_marginTop="10dp"
 	        android:inputType="textFilter"
-        android:digits="@+string/filtrage_adresse_caracteres" />
+        	android:digits="@+string/filtrage_caracteres_adresses" />
 	
 	    <TextView
 	        android:id="@+id/textViewVille"
