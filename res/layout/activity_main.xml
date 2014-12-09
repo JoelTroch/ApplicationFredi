@@ -27,7 +27,8 @@
 	        android:ems="13"
 	        android:layout_marginTop="10dp"
 	        android:inputType="textFilter"
-	        android:digits="@+string/filtrage_caracteres" >
+	        android:digits="@+string/filtrage_caracteres"
+	        android:singleLine="true" >
 
 	        <requestFocus />
 
@@ -51,7 +52,8 @@
 	        android:ems="13"
 	        android:layout_marginTop="10dp"
 	        android:inputType="textFilter"
-	        android:digits="@+string/filtrage_caracteres" />
+	        android:digits="@+string/filtrage_caracteres"
+	        android:singleLine="true" />
 	
 		<TextView
 	        android:id="@+id/textViewAdresse"
@@ -71,7 +73,8 @@
 	        android:ems="13"
 	        android:layout_marginTop="10dp"
 	        android:inputType="textFilter"
-	        android:digits="@+string/filtrage_caracteres_adresses" />
+	        android:digits="@+string/filtrage_caracteres_adresses"
+	        android:singleLine="true" />
 	
 	    <TextView
 	        android:id="@+id/textViewVille"
@@ -91,7 +94,8 @@
 			android:layout_marginTop="10dp"
 			android:layout_centerHorizontal="true"
 			android:inputType="textFilter"
-	        android:digits="@+string/filtrage_caracteres" />
+	        android:digits="@+string/filtrage_caracteres"
+	        android:singleLine="true" />
 	
 		<TextView
 			android:id="@+id/textViewCp"

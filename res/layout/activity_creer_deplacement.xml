@@ -45,7 +45,8 @@
 		    android:ems="13"
 		    android:layout_marginTop="10dp"
 		    android:inputType="textFilter"
-	        android:digits="@+string/filtrage_caracteres" >
+	        android:digits="@+string/filtrage_caracteres"
+	        android:singleLine="true" >
 
 			<requestFocus />
 
@@ -69,7 +70,8 @@
 	        android:layout_marginTop="10dp"
 	        android:ems="13"
 	        android:inputType="textFilter"
-        	android:digits="@+string/filtrage_caracteres" />
+        	android:digits="@+string/filtrage_caracteres"
+        	android:singleLine="true" />
 	
 	    <TextView
 	        android:id="@+id/textViewKm"
@@ -89,7 +91,8 @@
 	        android:layout_marginTop="10dp"
 	        android:ems="13"
 	        android:inputType="numberDecimal"
-	        android:text="@string/zero" />
+	        android:text="@string/zero"
+	        android:singleLine="true" />
 	    
 	    <TextView
 	        android:id="@+id/textViewMontantPeage"
@@ -109,7 +112,8 @@
 	        android:layout_marginTop="10dp"
 	        android:ems="13"
 	        android:inputType="number"
-	        android:text="@string/zero" />
+	        android:text="@string/zero"
+	        android:singleLine="true" />
 	    
 	    <TextView
 	        android:id="@+id/textViewMontantRepas"
@@ -129,7 +133,8 @@
 	        android:layout_marginTop="10dp"
 	        android:ems="13"
 	        android:inputType="numberDecimal"
-	        android:text="@string/zero" />
+	        android:text="@string/zero"
+	        android:singleLine="true" />
 	    
 	    <TextView
 	        android:id="@+id/textViewMontantHebergement"
