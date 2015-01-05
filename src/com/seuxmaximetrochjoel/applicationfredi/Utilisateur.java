@@ -12,7 +12,7 @@ public class Utilisateur {
 	
 	@SuppressWarnings("unused")
 	private String nom, prenom, adresse, ville, cp;
-	private long tutoAssociationsFait, tutoDeplacementsFait;
+	private long tutoAssociationsFait, tutoDeplacementsFait, tutoMotifsFait;
 	
 	// ====================================================================================================
 	// METHODES
@@ -27,9 +27,10 @@ public class Utilisateur {
 	 * @param cp Code postal de l'utilisateur.
 	 * @param tutoAssociationsFait Etat du tutoriel sur la manipulation des associations.
 	 * @param tutoDeplacementsFait Etat du tutoriel sur la manipulation des déplacements.
+	 * @param tutoMotifsFait Etat du tutoriel sur la manipulation des motifs.
 	 */
 	public Utilisateur(String nom, String prenom, String adresse, String ville, String cp,
-			long tutoAssociationsFait, long tutoDeplacementsFait) {
+			long tutoAssociationsFait, long tutoDeplacementsFait, long tutoMotifsFait) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
@@ -37,6 +38,7 @@ public class Utilisateur {
 		this.cp = cp;
 		this.tutoAssociationsFait = tutoAssociationsFait;
 		this.tutoDeplacementsFait = tutoDeplacementsFait;
+		this.tutoMotifsFait = tutoMotifsFait;
 	}
 	
 	/**
@@ -53,5 +55,13 @@ public class Utilisateur {
 	 */
 	public long getTutoDeplacementsFait() {
 		return this.tutoDeplacementsFait;
+	}
+	
+	/**
+	 * Récupère l'état du tutoriel sur la manipulation des motifs.
+	 * @return 1 si le tutoriel est fait, 0 dans le cas contraire.
+	 */
+	public long getTutoMotifsFait() {
+		return this.tutoMotifsFait;
 	}
 }

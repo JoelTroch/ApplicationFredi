@@ -34,6 +34,10 @@ public class BDHelper extends SQLiteOpenHelper {
 			+ "idAssociation INTEGER NOT NULL, "
 			+ "FOREIGN KEY(idAssociation) REFERENCES association(_id));";
 	
+	private final String requeteCreationTableMotif = "CREATE TABLE motif("
+			+ "_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+			+ "libelle TEXT NOT NULL);";
+	
 	private final String requeteCreationTableUtilisateur = "CREATE TABLE utilisateur("
 			+ "nom TEXT PRIMARY KEY NOT NULL, "
 			+ "prenom TEXT NOT NULL, "
@@ -70,7 +74,15 @@ public class BDHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase bdd) {
 		bdd.execSQL(requeteCreationTableAssociation);
 		bdd.execSQL(requeteCreationTableDeplacement);
+		bdd.execSQL(requeteCreationTableMotif);
 		bdd.execSQL(requeteCreationTableUtilisateur);
+		
+		// Création des motifs par défaut
+		bdd.execSQL("INSERT INTO motif VALUES(1, 'Voyage');");
+		bdd.execSQL("INSERT INTO motif VALUES(2, 'Compétition');");
+		bdd.execSQL("INSERT INTO motif VALUES(3, 'Entraînement');");
+		bdd.execSQL("INSERT INTO motif VALUES(4, 'Rencontre amicale');");
+		bdd.execSQL("INSERT INTO motif VALUES(5, 'Réunion');");
 	}
 	
 	/**
