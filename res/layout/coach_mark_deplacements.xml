@@ -17,21 +17,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="@string/tuto_deplacements_intitule" />
+            android:text="@string/tuto_deplacements_intitule"
+            android:textColor="@color/blanc" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="@string/tuto_deplacements_clic_long" />
+            android:text="@string/tuto_deplacements_clic_long"
+            android:textColor="@color/blanc" />
         
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="@string/tuto_fermer" />
+            android:text="@string/tuto_fermer"
+            android:textColor="@color/blanc" />
 
     </LinearLayout>
 
