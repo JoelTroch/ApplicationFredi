@@ -23,7 +23,6 @@ import android.widget.Toast;
 /**
  * Code pour l'activité "Déplacements".
  * @author Maxime Seux
- *
  */
 public class DeplacementsActivity extends Activity {
 	

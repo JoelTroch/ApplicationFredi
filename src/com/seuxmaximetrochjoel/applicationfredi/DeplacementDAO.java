@@ -16,7 +16,6 @@ import android.util.Log;
 /**
  * Classe technique pour les déplacements.
  * @author Joël Troch
- *
  */
 @SuppressLint("SimpleDateFormat")
 public class DeplacementDAO {
@@ -25,8 +24,8 @@ public class DeplacementDAO {
 	// ATTRIBUTS
 	// ====================================================================================================
 	
-	private SQLiteDatabase bdd;
 	private BDHelper bddHelper;
+	private SQLiteDatabase bdd;
 	
 	// ====================================================================================================
 	// METHODES

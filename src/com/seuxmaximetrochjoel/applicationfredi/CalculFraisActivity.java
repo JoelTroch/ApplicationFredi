@@ -16,7 +16,6 @@ import android.widget.Toast;
 /**
  * Code pour l'activité "Calcul des frais".
  * @author Maxime Seux
- *
  */
 public class CalculFraisActivity extends Activity {
 	
@@ -63,12 +62,7 @@ public class CalculFraisActivity extends Activity {
 	                manipBDD.close();
 	                
 	                // Calcul des frais.
-	                float kmTotal = 0;
-	                float montantKilometres = 0;
-	                float montantPeageTotal = 0;
-	                float montantRepasTotal = 0;
-	                float montantHebergementTotal = 0;
-	                float totalFrais = 0;
+	                float kmTotal = 0, montantKilometres = 0, montantPeageTotal = 0, montantRepasTotal = 0, montantHebergementTotal = 0, totalFrais = 0;
 	                for (Deplacement unDeplacement : listeDeplacements) {
 	                	kmTotal += unDeplacement.getNbKm();
 	                	montantPeageTotal += unDeplacement.getMontantPeage();

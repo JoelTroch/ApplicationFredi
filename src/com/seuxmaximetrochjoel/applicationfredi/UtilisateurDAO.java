@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Classe technique pour l'utilisateur.
  * @author Joël Troch
- *
  */
 public class UtilisateurDAO {
 	
@@ -17,8 +16,8 @@ public class UtilisateurDAO {
 	// ATTRIBUTS
 	// ====================================================================================================
 	
-	private SQLiteDatabase bdd;
 	private BDHelper bddHelper;
+	private SQLiteDatabase bdd;
 	
 	// ====================================================================================================
 	// METHODES

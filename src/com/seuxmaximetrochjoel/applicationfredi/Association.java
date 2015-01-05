@@ -3,7 +3,6 @@ package com.seuxmaximetrochjoel.applicationfredi;
 /**
  * Classe métier pour les associations.
  * @author Joël Troch
- *
  */
 public class Association {
 	
@@ -12,10 +11,7 @@ public class Association {
 	// ====================================================================================================
 	
 	private long id;
-	private String nom;
-	private String adresse;
-	private String ville;
-	private String cp;
+	private String nom, adresse, ville, cp;
 	
 	// ====================================================================================================
 	// METHODES

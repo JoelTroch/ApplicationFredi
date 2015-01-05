@@ -15,9 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Code pour l'activité "Créer un déplacement"
+ * Code pour l'activité "Créer un déplacement".
  * @author Maxime Seux
- *
  */
 public class CreerDeplacementActivity extends Activity {
 	
@@ -33,9 +32,7 @@ public class CreerDeplacementActivity extends Activity {
 	private EditText edtMontantPeage = null;
 	private EditText edtMontantRepas = null;
 	private EditText edtMontantHebergement = null;
-	private int annee;
-	private int jour;
-	private int mois;
+	private int annee, jour, mois;
 	private Intent intent = null;
 	private TextView textViewDate = null;
 	
@@ -125,7 +122,6 @@ public class CreerDeplacementActivity extends Activity {
 								Float.valueOf(edtMontantHebergement.getText().toString()),
 								intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
 					}
-					
 					manipBDD.close();
 					CreerDeplacementActivity.this.finish();
 				} else

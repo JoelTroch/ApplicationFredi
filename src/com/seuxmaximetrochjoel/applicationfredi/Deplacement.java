@@ -3,7 +3,6 @@ package com.seuxmaximetrochjoel.applicationfredi;
 /**
  * Classe métier pour les déplacements.
  * @author Joël Troch
- *
  */
 public class Deplacement {
 	
@@ -12,15 +11,9 @@ public class Deplacement {
 	// ====================================================================================================
 	
 	private long id;
-	private int dateJour;
-	private int dateMois;
-	private int dateAnnee;
-	private String motif;
-	private String intituleTrajet;
-	private float nbKm;
-	private float montantPeage;
-	private float montantRepas;
-	private float montantHebergement;
+	private int dateJour, dateMois, dateAnnee;
+	private String motif, intituleTrajet;
+	private float nbKm, montantPeage, montantRepas, montantHebergement;
 	private long idAssociation;
 	
 	// ====================================================================================================

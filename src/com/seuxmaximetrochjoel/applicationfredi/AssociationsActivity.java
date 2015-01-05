@@ -22,7 +22,6 @@ import android.widget.Toast;
 /**
  * Code pour l'activité "Associations".
  * @author Maxime Seux
- *
  */
 public class AssociationsActivity extends Activity {
 	

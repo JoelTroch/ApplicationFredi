@@ -3,7 +3,6 @@ package com.seuxmaximetrochjoel.applicationfredi;
 /**
  * Classe métier pour l'utilisateur.
  * @author Joël Troch
- *
  */
 public class Utilisateur {
 	
@@ -12,17 +11,8 @@ public class Utilisateur {
 	// ====================================================================================================
 	
 	@SuppressWarnings("unused")
-	private String nom;
-	@SuppressWarnings("unused")
-	private String prenom;
-	@SuppressWarnings("unused")
-	private String adresse;
-	@SuppressWarnings("unused")
-	private String ville;
-	@SuppressWarnings("unused")
-	private String cp;
-	private long tutoAssociationsFait;
-	private long tutoDeplacementsFait;
+	private String nom, prenom, adresse, ville, cp;
+	private long tutoAssociationsFait, tutoDeplacementsFait;
 	
 	// ====================================================================================================
 	// METHODES
