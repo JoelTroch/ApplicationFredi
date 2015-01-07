@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -29,11 +28,11 @@ public class AssociationsActivity extends Activity {
 	// ATTRIBUTS
 	// ====================================================================================================
 	
-	private ArrayAdapter<String> listeAdapter = null;
+	private AdaptateurListeAssociations listeAdapter = null;
 	private ArrayList<Association> listeAssociations = null;
-	private ArrayList<String> listeAssociationsAffichage = new ArrayList<String>();
 	private AssociationDAO manipAssociationBDD = null;
 	private Dialog dialogTuto = null;
+	private ListView listViewAssociations = null;
 	private UtilisateurDAO manipUtilisateurBDD = null;
 	
 	// ====================================================================================================
@@ -56,15 +55,11 @@ public class AssociationsActivity extends Activity {
 		});
 		
 		// Initialisation de la liste d'affichage et de la DAO.
-		ListView listViewAssociations = (ListView)findViewById(R.id.listViewAssociations);
+		listViewAssociations = (ListView)findViewById(R.id.listViewAssociations);
 		manipAssociationBDD = new AssociationDAO(this);
 		
-		// Mise à jour de la liste et affichage.
+		// Mise à jour de la liste, affichage et gestion du menu contextuel.
 		miseAJourListe();
-		listeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listeAssociationsAffichage);
-		listViewAssociations.setAdapter(listeAdapter);
-		
-		// Gestion du menu contextuel.
 		registerForContextMenu(listViewAssociations);
 		listViewAssociations.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			
@@ -80,12 +75,12 @@ public class AssociationsActivity extends Activity {
 	}
 	
 	private void miseAJourListe() {
-		// On récupère toutes les associations et on prépare la liste d'affichage.
+		// On récupère toutes les associations et on remplit la liste.
 		manipAssociationBDD.open(true);
 		listeAssociations = manipAssociationBDD.getAllAssociations();
+		listeAdapter = new AdaptateurListeAssociations(this, listeAssociations);
+		listViewAssociations.setAdapter(listeAdapter);
 		manipAssociationBDD.close();
-		for (Association uneAssociation : listeAssociations)
-			listeAssociationsAffichage.add(uneAssociation.getNom());
 	}
 	
 	/**
@@ -102,7 +97,7 @@ public class AssociationsActivity extends Activity {
 		if (v.getId() == R.id.listViewAssociations) {
 			// Ajout des actions au menu contextuel
 			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
-			menu.setHeaderTitle(listeAssociationsAffichage.get(info.position));
+			menu.setHeaderTitle(listeAssociations.get(info.position).getNom());
 			menu.add(Menu.NONE, 0, 0, getString(R.string.modifier));
 			menu.add(Menu.NONE, 1, 1, getString(R.string.effacer));
 		}
@@ -138,7 +133,6 @@ public class AssociationsActivity extends Activity {
 			manipAssociationBDD.close();
 			
 			// Mise à jour de la liste.
-			listeAssociationsAffichage.clear();
 			miseAJourListe();
 			listeAdapter.notifyDataSetChanged();
 			
@@ -158,7 +152,6 @@ public class AssociationsActivity extends Activity {
 		super.onResume();
 		
 		// Mise à jour de la liste.
-		listeAssociationsAffichage.clear();
 		miseAJourListe();
 		listeAdapter.notifyDataSetChanged();
 		
