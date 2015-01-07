@@ -44,6 +44,14 @@
             android:label="@string/title_activity_calcul_frais"
             android:configChanges="keyboardHidden|orientation|screenSize" >
         </activity>
+        <activity
+            android:name=".MotifsActivity"
+            android:label="@string/title_activity_motifs" >
+        </activity>
+        <activity
+            android:name=".CreerMotifActivity"
+            android:label="@string/title_activity_creer_motif" >
+        </activity>
     </application>
 
 </manifest>

@@ -51,12 +51,21 @@
 			<requestFocus />
 
 		</EditText>
+		
+		<Button
+	        android:id="@+id/btnMotif"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/edtMotif"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/choisir_motif_predefini" />
 
 	    <TextView
 	        android:id="@+id/textViewIntituleTrajet"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/edtMotif"
+	        android:layout_below="@+id/btnMotif"
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
 	        android:text="@string/intitule_trajet" />
