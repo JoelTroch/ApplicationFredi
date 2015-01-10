@@ -17,15 +17,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="@string/tuto_associations_intitule"
+            android:text="@string/tuto_motifs_intitule"
             android:textColor="@color/blanc" />
-
+        
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="@string/tuto_associations_clic_court"
+            android:text="@string/tuto_motifs_clic_court"
             android:textColor="@color/blanc" />
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="@string/tuto_associations_clic_long"
+            android:text="@string/tuto_motifs_clic_long"
             android:textColor="@color/blanc" />
         
         <TextView

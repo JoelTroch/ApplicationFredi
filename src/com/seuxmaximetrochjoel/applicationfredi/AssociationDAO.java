@@ -11,7 +11,6 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Classe technique pour les associations.
  * @author Joël Troch
- *
  */
 public class AssociationDAO {
 	
@@ -19,8 +18,8 @@ public class AssociationDAO {
 	// ATTRIBUTS
 	// ====================================================================================================
 	
-	private SQLiteDatabase bdd;
 	private BDHelper bddHelper;
+	private SQLiteDatabase bdd;
 	
 	// ====================================================================================================
 	// METHODES

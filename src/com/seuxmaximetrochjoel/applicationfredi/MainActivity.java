@@ -11,7 +11,6 @@ import android.widget.Toast;
 /**
  * Code pour l'activité principale "Enregistrement utilisateur".
  * @author Maxime Seux
- *
  */
 public class MainActivity extends Activity {
 	

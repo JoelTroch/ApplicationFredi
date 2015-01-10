@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Classe technique pour l'utilisateur.
  * @author Joël Troch
- *
  */
 public class UtilisateurDAO {
 	
@@ -17,8 +16,8 @@ public class UtilisateurDAO {
 	// ATTRIBUTS
 	// ====================================================================================================
 	
-	private SQLiteDatabase bdd;
 	private BDHelper bddHelper;
+	private SQLiteDatabase bdd;
 	
 	// ====================================================================================================
 	// METHODES
@@ -71,6 +70,7 @@ public class UtilisateurDAO {
 		valeurs.put("cp", cp);
 		valeurs.put("tutoAssociationsFait", 0);
 		valeurs.put("tutoDeplacementsFait", 0);
+		valeurs.put("tutoMotifsFait", 0);
 		long resultat = bdd.insert("utilisateur", null, valeurs);
 		return resultat;
 	}
@@ -114,8 +114,20 @@ public class UtilisateurDAO {
 		return resultat;
 	}
 	
+	/**
+	 * Indique que le tutoriel sur la manipulation des motifs a été suivi.
+	 * @return 1 si la requête est un succès ou 0 si c'est un échec.
+	 */
+	public long setTutoMotifsFait() {
+		ContentValues valeurs = new ContentValues();
+		valeurs.put("tutoMotifsFait", 1);
+		long resultat = bdd.update("utilisateur", valeurs, null, null);
+		return resultat;
+	}
+	
 	private Utilisateur cursorToUtilisateur(Cursor curseur) {
 		return new Utilisateur(curseur.getString(0), curseur.getString(1), curseur.getString(2),
-				curseur.getString(3), curseur.getString(4), curseur.getLong(5), curseur.getLong(6));
+				curseur.getString(3), curseur.getString(4), curseur.getLong(5), curseur.getLong(6),
+				curseur.getLong(7));
 	}
 }

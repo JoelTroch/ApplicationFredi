@@ -11,7 +11,6 @@ import android.widget.Toast;
 /**
  * Code pour l'activité "Créer une association".
  * @author Maxime Seux
- *
  */
 public class CreerAssociationActivity extends Activity {
 	
@@ -54,24 +53,20 @@ public class CreerAssociationActivity extends Activity {
 		// Initialisation des manipulations BDD et du bouton "Enregistrer".
 		manipBDD = new AssociationDAO(this);
 		Button btnEnregistrer = (Button)findViewById(R.id.btnEnregistrer);
-		
 		btnEnregistrer.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// Contrôle de saisie.
-				if (edtNom.getText().length() > 0 && edtAdresse.getText().length() > 0 && edtVille.getText().length() > 0 &&
-						edtCp.getText().length() > 0) {
+				if (edtNom.getText().length() > 0 && edtAdresse.getText().length() > 0 &&
+						edtVille.getText().length() > 0 && edtCp.getText().length() > 0) {
 					
 					// Création ou mise à jour de l'association.
 					manipBDD.open(false);
-					if (intent.getLongExtra("EXTRA_ID", -1) == -1) {
-						manipBDD.createAssociation(edtNom.getText().toString(), edtAdresse.getText().toString(),
-								edtVille.getText().toString(), edtCp.getText().toString());
-					} else {
-						manipBDD.updateAssociation(intent.getLongExtra("EXTRA_ID", -1), edtNom.getText().toString(),
-								edtAdresse.getText().toString(), edtVille.getText().toString(), edtCp.getText().toString());
-					}
+					if (intent.getLongExtra("EXTRA_ID", -1) == -1)
+						manipBDD.createAssociation(edtNom.getText().toString(), edtAdresse.getText().toString(), edtVille.getText().toString(), edtCp.getText().toString());
+					else
+						manipBDD.updateAssociation(intent.getLongExtra("EXTRA_ID", -1), edtNom.getText().toString(), edtAdresse.getText().toString(), edtVille.getText().toString(), edtCp.getText().toString());
 					
 					manipBDD.close();
 					CreerAssociationActivity.this.finish();

@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,7 +22,6 @@ import android.widget.Toast;
 /**
  * Code pour l'activité "Déplacements".
  * @author Maxime Seux
- *
  */
 public class DeplacementsActivity extends Activity {
 	
@@ -31,12 +29,12 @@ public class DeplacementsActivity extends Activity {
 	// ATTRIBUTS
 	// ====================================================================================================
 
-	private ArrayAdapter<String> listeAdapter = null;
+	private AdaptateurListeDeplacements listeAdapter = null;
 	private ArrayList<Deplacement> listeDeplacements = null;
-	private ArrayList<String> listeDeplacementsAffichage = new ArrayList<String>();
 	private DeplacementDAO manipDeplacementBDD = null;
 	private Dialog dialogTuto = null;
 	private Intent intent = null;
+	private ListView liste = null;
 	private UtilisateurDAO manipUtilisateurBDD = null;
 	
 	// ====================================================================================================
@@ -81,13 +79,11 @@ public class DeplacementsActivity extends Activity {
 		});
 		
 		// Initialisation de la liste d'affichage, mise à jour de son contenu, affichage et paramétrage menu contextuel
-		ListView liste = (ListView)findViewById(R.id.listViewDeplacements);
+		liste = (ListView)findViewById(R.id.listViewDeplacements);
 		manipDeplacementBDD = new DeplacementDAO(this);
 		
 		// Mise à jour de la liste, affichage et gestion du menu contextuel.
 		miseAJourListe();
-		listeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listeDeplacementsAffichage);
-		liste.setAdapter(listeAdapter);
 		registerForContextMenu(liste);
 	}
 	
@@ -95,9 +91,9 @@ public class DeplacementsActivity extends Activity {
 		// On récupère toutes les associations et on prépare la liste d'affichage
 		manipDeplacementBDD.open(true);
 		listeDeplacements = manipDeplacementBDD.getAllDeplacementsByIdAssociation(intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
+		listeAdapter = new AdaptateurListeDeplacements(this, listeDeplacements);
+		liste.setAdapter(listeAdapter);
 		manipDeplacementBDD.close();
-		for (Deplacement unDeplacement : listeDeplacements)
-			listeDeplacementsAffichage.add(unDeplacement.getMotif());
 	}
 	
 	/**
@@ -113,7 +109,7 @@ public class DeplacementsActivity extends Activity {
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		if (v.getId() == R.id.listViewDeplacements) {
 			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
-			menu.setHeaderTitle(listeDeplacementsAffichage.get(info.position));
+			menu.setHeaderTitle(listeDeplacements.get(info.position).getMotif());
 			menu.add(Menu.NONE, 0, 0, getString(R.string.modifier));
 			menu.add(Menu.NONE, 1, 1, getString(R.string.effacer));
 		}
@@ -151,7 +147,6 @@ public class DeplacementsActivity extends Activity {
 			manipDeplacementBDD.close();
 			
 			// Mise à jour de la liste.
-			listeDeplacementsAffichage.clear();
 			miseAJourListe();
 			listeAdapter.notifyDataSetChanged();
 			
@@ -171,7 +166,6 @@ public class DeplacementsActivity extends Activity {
 		super.onResume();
 		
 		// Mise à jour de la liste.
-		listeDeplacementsAffichage.clear();
 		miseAJourListe();
 		listeAdapter.notifyDataSetChanged();
 		

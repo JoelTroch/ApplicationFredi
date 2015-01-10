@@ -14,25 +14,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 /**
- * Code pour l'activité "Associations".
+ * Code pour l'activité "Motifs".
  * @author Maxime Seux
  */
-public class AssociationsActivity extends Activity {
+public class MotifsActivity extends Activity {
 	
 	// ====================================================================================================
 	// ATTRIBUTS
 	// ====================================================================================================
 	
-	private AdaptateurListeAssociations listeAdapter = null;
-	private ArrayList<Association> listeAssociations = null;
-	private AssociationDAO manipAssociationBDD = null;
+	private ArrayAdapter<String> listeAdapter = null;
+	private ArrayList<Motif> listeMotifs = null;
+	private ArrayList<String> listeMotifsAffichage = new ArrayList<String>();
 	private Dialog dialogTuto = null;
-	private ListView listViewAssociations = null;
+	private MotifDAO manipMotifBDD = null;
 	private UtilisateurDAO manipUtilisateurBDD = null;
 	
 	// ====================================================================================================
@@ -42,45 +43,49 @@ public class AssociationsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_associations);
+		setContentView(R.layout.activity_motifs);
 		
-		// Paramétrage du bouton "Ajouter association".
-		Button btnAjouterAssociation = (Button)findViewById(R.id.btnAjouterAssociation);
-		btnAjouterAssociation.setOnClickListener(new View.OnClickListener() {
+		// Paramétrage du bouton "Ajouter motif".
+		Button btnAjouterMotif = (Button)findViewById(R.id.btnAjouterMotif);
+		btnAjouterMotif.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent(AssociationsActivity.this, CreerAssociationActivity.class);
+				Intent intent = new Intent(MotifsActivity.this, CreerMotifActivity.class);
 				startActivity(intent);
 			}
 		});
 		
 		// Initialisation de la liste d'affichage et de la DAO.
-		listViewAssociations = (ListView)findViewById(R.id.listViewAssociations);
-		manipAssociationBDD = new AssociationDAO(this);
+		ListView listViewMotifs = (ListView)findViewById(R.id.listViewMotifs);
+		manipMotifBDD = new MotifDAO(this);
 		
-		// Mise à jour de la liste, affichage et gestion du menu contextuel.
+		// Mise à jour de la liste et affichage.
 		miseAJourListe();
-		registerForContextMenu(listViewAssociations);
-		listViewAssociations.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		listeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listeMotifsAffichage);
+		listViewMotifs.setAdapter(listeAdapter);
+		
+		// Gestion du menu contextuel.
+		registerForContextMenu(listViewMotifs);
+		listViewMotifs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-				Intent intent = new Intent(AssociationsActivity.this, DeplacementsActivity.class);
-				intent.putExtra("EXTRA_ASSOCIATION_ID", listeAssociations.get(position).getId());
-				intent.putExtra("EXTRA_ASSOCIATION_NOM", listeAssociations.get(position).getNom());
-				startActivity(intent);
+				Intent intent = new Intent();
+				intent.putExtra("MOTIF_PREDEFINI", listeMotifs.get(position).getLibelle());
+				setResult(RESULT_OK, intent);
+				finish();
 			}
 			
 		});
 	}
 	
 	private void miseAJourListe() {
-		// On récupère toutes les associations et on remplit la liste.
-		manipAssociationBDD.open(true);
-		listeAssociations = manipAssociationBDD.getAllAssociations();
-		listeAdapter = new AdaptateurListeAssociations(this, listeAssociations);
-		listViewAssociations.setAdapter(listeAdapter);
-		manipAssociationBDD.close();
+		// On récupère tous les motifs et on prépare la liste d'affichage.
+		manipMotifBDD.open(true);
+		listeMotifs = manipMotifBDD.getAllMotifs();
+		manipMotifBDD.close();
+		for (Motif unMotif : listeMotifs)
+			listeMotifsAffichage.add(unMotif.getLibelle());
 	}
 	
 	/**
@@ -94,10 +99,10 @@ public class AssociationsActivity extends Activity {
 	 */
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-		if (v.getId() == R.id.listViewAssociations) {
+		if (v.getId() == R.id.listViewMotifs) {
 			// Ajout des actions au menu contextuel
 			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
-			menu.setHeaderTitle(listeAssociations.get(info.position).getNom());
+			menu.setHeaderTitle(listeMotifsAffichage.get(info.position));
 			menu.add(Menu.NONE, 0, 0, getString(R.string.modifier));
 			menu.add(Menu.NONE, 1, 1, getString(R.string.effacer));
 		}
@@ -114,25 +119,19 @@ public class AssociationsActivity extends Activity {
 	public boolean onContextItemSelected(MenuItem item) {
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
 		if (item.getItemId() == 0) {
-			// On ouvre l'activité "Créer une association" en "mode modification".
-			Intent intent = new Intent(AssociationsActivity.this, CreerAssociationActivity.class);
-			intent.putExtra("EXTRA_ID", listeAssociations.get(info.position).getId());
-			intent.putExtra("EXTRA_NOM", listeAssociations.get(info.position).getNom());
-			intent.putExtra("EXTRA_ADRESSE", listeAssociations.get(info.position).getAdresse());
-			intent.putExtra("EXTRA_VILLE", listeAssociations.get(info.position).getVille());
-			intent.putExtra("EXTRA_CP", listeAssociations.get(info.position).getCP());
+			// On ouvre l'activité "Créer un motif" en "mode modification".
+			Intent intent = new Intent(MotifsActivity.this, CreerMotifActivity.class);
+			intent.putExtra("EXTRA_ID", listeMotifs.get(info.position).getId());
+			intent.putExtra("EXTRA_LIBELLE", listeMotifs.get(info.position).getLibelle());
 			startActivity(intent);
 		} else {
-			// Effacement des déplacements de l'association et enfin de l'association elle-même.
-			DeplacementDAO manipBDDDeplacements = new DeplacementDAO(this);
-			manipBDDDeplacements.open(false);
-			manipBDDDeplacements.deleteAllDeplacementsByIdAssociation(listeAssociations.get(info.position).getId());
-			manipBDDDeplacements.close();
-			manipAssociationBDD.open(false);
-			manipAssociationBDD.deleteAssociationById(listeAssociations.get(info.position).getId());
-			manipAssociationBDD.close();
+			// Effacement du motif.
+			manipMotifBDD.open(false);
+			manipMotifBDD.deleteMotifById(listeMotifs.get(info.position).getId());
+			manipMotifBDD.close();
 			
 			// Mise à jour de la liste.
+			listeMotifsAffichage.clear();
 			miseAJourListe();
 			listeAdapter.notifyDataSetChanged();
 			
@@ -152,17 +151,18 @@ public class AssociationsActivity extends Activity {
 		super.onResume();
 		
 		// Mise à jour de la liste.
+		listeMotifsAffichage.clear();
 		miseAJourListe();
 		listeAdapter.notifyDataSetChanged();
 		
 		// Gestion du tutoriel.
 		manipUtilisateurBDD = new UtilisateurDAO(this);
 		manipUtilisateurBDD.open(true);
-		if (listeAssociations.size() > 0 && manipUtilisateurBDD.getUtilisateur().getTutoAssociationsFait() == 0) {
+		if (listeMotifs.size() > 0 && manipUtilisateurBDD.getUtilisateur().getTutoMotifsFait() == 0) {
 			dialogTuto = new Dialog(this);
 			dialogTuto.requestWindowFeature(Window.FEATURE_NO_TITLE);
 			dialogTuto.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-			dialogTuto.setContentView(R.layout.coach_mark_associations);
+			dialogTuto.setContentView(R.layout.coach_mark_motifs);
 			dialogTuto.setCanceledOnTouchOutside(true);
 			
 			View dialogTutoMasterView = dialogTuto.findViewById(R.id.coach_mark_master_view);
@@ -174,7 +174,7 @@ public class AssociationsActivity extends Activity {
 				}
 				
 			});
-			manipUtilisateurBDD.setTutoAssociationsFait();
+			manipUtilisateurBDD.setTutoMotifsFait();
 			dialogTuto.show();
 		}
 		manipUtilisateurBDD.close();

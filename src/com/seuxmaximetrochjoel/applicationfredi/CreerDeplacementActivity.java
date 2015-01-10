@@ -15,9 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Code pour l'activité "Créer un déplacement"
+ * Code pour l'activité "Créer un déplacement".
  * @author Maxime Seux
- *
  */
 public class CreerDeplacementActivity extends Activity {
 	
@@ -26,6 +25,7 @@ public class CreerDeplacementActivity extends Activity {
 	// ====================================================================================================
 	
 	private Button btnDate = null;
+	private Button btnMotif = null;
 	private DeplacementDAO manipBDD = null;
 	private EditText edtMotif = null;
 	private EditText edtIntituleTrajet = null;
@@ -33,9 +33,7 @@ public class CreerDeplacementActivity extends Activity {
 	private EditText edtMontantPeage = null;
 	private EditText edtMontantRepas = null;
 	private EditText edtMontantHebergement = null;
-	private int annee;
-	private int jour;
-	private int mois;
+	private int annee, jour, mois, requeteMotifPredefini = 1;
 	private Intent intent = null;
 	private TextView textViewDate = null;
 	
@@ -95,6 +93,18 @@ public class CreerDeplacementActivity extends Activity {
 			
 		});
 		
+		// Paramétrage du bouton "Choisir un bouton prédéfini".
+		btnMotif = (Button)findViewById(R.id.btnMotif);
+		btnMotif.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(CreerDeplacementActivity.this, MotifsActivity.class);
+				startActivityForResult(intent, requeteMotifPredefini);
+			}
+			
+		});
+		
 		// Initialisation des manipulations BDD et du bouton "Enregistrer".
 		manipBDD = new DeplacementDAO(this);
 		Button btnEnregistrer = (Button)findViewById(R.id.btnEnregistrer);
@@ -125,7 +135,6 @@ public class CreerDeplacementActivity extends Activity {
 								Float.valueOf(edtMontantHebergement.getText().toString()),
 								intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
 					}
-					
 					manipBDD.close();
 					CreerDeplacementActivity.this.finish();
 				} else
@@ -155,4 +164,17 @@ public class CreerDeplacementActivity extends Activity {
 		}
 		
 	};
+	
+	/**
+	 * Surcharge de la méthode "onActivityResult" de la classe "Activity" d'Android.
+	 * Cette procédure événementielle est appelée à chaque fois que l'activité réapparait avec un résultat.
+	 * @see http://developer.android.com/reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == requeteMotifPredefini) {
+			if (resultCode == RESULT_OK)
+				edtMotif.setText(data.getStringExtra("MOTIF_PREDEFINI"));
+		}
+	}
 }

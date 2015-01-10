@@ -8,6 +8,7 @@
     <string name="adresse">Adresse :</string>
     <string name="ajouter">Ajouter</string>
     <string name="ajouter_association">Ajouter une association</string>
+    <string name="ajouter_motif">Ajouter un motif</string>
     <string name="calcul_frais_prix_kilometre_contenu">Veuillez saisir le prix d\'un kilomètre pour les trajets.</string>
     <string name="calcul_frais_prix_kilometre_titre">Prix par kilomètre parcouru</string>
     <string name="calcul_frais_rapport_association">Association :</string>
@@ -20,12 +21,14 @@
     <string name="calcul_frais_rapport_nombre_kilometres">Nombre de kilomètres effectués :</string>
     <string name="calculer">Calculer</string>
     <string name="changer_date">Changer la date</string>
+    <string name="choisir_motif_predefini">Choisir un motif prédéfini</string>
     <string name="cp">Code postal :</string>
     <string name="date">Date :</string>
     <string name="effacer">Effacer</string>
     <string name="enregistrer">Enregistrer</string>
-    <string name="filtrage_caracteres">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZéèêëçàù" "</string>
-    <string name="filtrage_caracteres_adresses">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZéèêëçàù0123456789" "</string>
+    <!-- Caractères provenant de http://www.ascii-code.com/ -->
+    <string name="filtrage_caracteres">" "\',-.ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzŒŽœžŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåæçèéêëìíîïñòóôõöœùúùûüýÿ\"</string>
+    <string name="filtrage_caracteres_adresses">" "\',-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzŒŽœžŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåæçèéêëìíîïñòóôõöœùúùûüýÿ\"</string>
     <string name="intitule_trajet">Intitulé trajet :</string>
     <string name="kilometrage">Kilométrage :</string>
     <string name="modifier">Modifier</string>
@@ -43,14 +46,20 @@
     <string name="title_activity_calcul_frais">Frais remboursables</string>
     <string name="title_activity_creer_association">Créer une association</string>
     <string name="title_activity_creer_deplacement">Créer un déplacement</string>
+    <string name="title_activity_creer_motif">Créer un motif</string>
     <string name="title_activity_deplacements">Déplacements</string>
     <string name="title_activity_modifier_association">Modifier une association</string>
     <string name="title_activity_modifier_deplacement">Modifier un déplacement</string>
+    <string name="title_activity_modifier_motif">Modifier un motif</string>
+    <string name="title_activity_motifs">Motifs</string>
     <string name="tuto_associations_clic_court">Court = Gérer ses déplacements.</string>
     <string name="tuto_associations_clic_long">Long = Modifie ou efface l\'association.</string>
     <string name="tuto_associations_intitule">Clic sur association dans la liste :</string>
     <string name="tuto_deplacements_clic_long">Long = Modifie ou efface le déplacement.</string>
     <string name="tuto_deplacements_intitule">Clic sur déplacement dans la liste :</string>
+    <string name="tuto_motifs_clic_court">Court = Sélectionner ce motif.</string>
+    <string name="tuto_motifs_clic_long">Long = Modifie ou efface le motif.</string>
+    <string name="tuto_motifs_intitule">Clic sur motif dans la liste :</string>
     <string name="tuto_fermer">Appuyez sur l\'écran pour fermer.</string>
     <string name="ville">Ville :</string>
     <string name="zero">0</string>

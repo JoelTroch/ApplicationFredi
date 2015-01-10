@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Classe responsable de la création et mise à jour de la base de données.
  * Elle hérite de la classe "SQLiteOpenHelper" d'Android.
  * @author Joël Troch
- *
  */
 public class BDHelper extends SQLiteOpenHelper {
 	
@@ -17,18 +16,37 @@ public class BDHelper extends SQLiteOpenHelper {
 	// ====================================================================================================
 	
 	private final String requeteCreationTableAssociation = "CREATE TABLE association("
-			+ "_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nom TEXT NOT NULL, adresse TEXT NOT NULL,"
-			+ "ville TEXT NOT NULL, cp TEXT NOT NULL);";
+			+ "_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+			+ "nom TEXT NOT NULL, "
+			+ "adresse TEXT NOT NULL, "
+			+ "ville TEXT NOT NULL, "
+			+ "cp TEXT NOT NULL);";
 	
 	private final String requeteCreationTableDeplacement = "CREATE TABLE deplacement("
-			+ "_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, date DATE NOT NULL, motif TEXT NOT NULL,"
-			+ "intituleTrajet TEXT NOT NULL, nbKm FLOAT NOT NULL, montantPeage FLOAT NOT NULL,"
-			+ "montantRepas FLOAT NOT NULL, montantHebergement FLOAT NOT NULL, idAssociation INTEGER NOT NULL,"
+			+ "_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+			+ "date DATE NOT NULL, "
+			+ "motif TEXT NOT NULL, "
+			+ "intituleTrajet TEXT NOT NULL, "
+			+ "nbKm FLOAT NOT NULL, "
+			+ "montantPeage FLOAT NOT NULL, "
+			+ "montantRepas FLOAT NOT NULL, "
+			+ "montantHebergement FLOAT NOT NULL, "
+			+ "idAssociation INTEGER NOT NULL, "
 			+ "FOREIGN KEY(idAssociation) REFERENCES association(_id));";
 	
-	private final String requeteCreationTableUtilisateur = "CREATE TABLE utilisateur(nom TEXT PRIMARY KEY NOT NULL,"
-			+ "prenom TEXT NOT NULL, adresse TEXT NOT NULL, ville TEXT NOT NULL, cp TEXT NOT NULL,"
-			+ "tutoAssociationsFait BOOL NOT NULL, tutoDeplacementsFait BOOL NOT NULL);";
+	private final String requeteCreationTableMotif = "CREATE TABLE motif("
+			+ "_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+			+ "libelle TEXT NOT NULL);";
+	
+	private final String requeteCreationTableUtilisateur = "CREATE TABLE utilisateur("
+			+ "nom TEXT PRIMARY KEY NOT NULL, "
+			+ "prenom TEXT NOT NULL, "
+			+ "adresse TEXT NOT NULL, "
+			+ "ville TEXT NOT NULL, "
+			+ "cp TEXT NOT NULL, "
+			+ "tutoAssociationsFait BOOL NOT NULL, "
+			+ "tutoDeplacementsFait BOOL NOT NULL, "
+			+ "tutoMotifsFait BOOL NOT NULL);";
 	
 	// ====================================================================================================
 	// CONSTRUCTEUR
@@ -56,7 +74,15 @@ public class BDHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase bdd) {
 		bdd.execSQL(requeteCreationTableAssociation);
 		bdd.execSQL(requeteCreationTableDeplacement);
+		bdd.execSQL(requeteCreationTableMotif);
 		bdd.execSQL(requeteCreationTableUtilisateur);
+		
+		// Création des motifs par défaut
+		bdd.execSQL("INSERT INTO motif VALUES(1, 'Voyage');");
+		bdd.execSQL("INSERT INTO motif VALUES(2, 'Compétition');");
+		bdd.execSQL("INSERT INTO motif VALUES(3, 'Entraînement');");
+		bdd.execSQL("INSERT INTO motif VALUES(4, 'Rencontre amicale');");
+		bdd.execSQL("INSERT INTO motif VALUES(5, 'Réunion');");
 	}
 	
 	/**
