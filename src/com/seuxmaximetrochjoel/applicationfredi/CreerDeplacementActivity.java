@@ -148,7 +148,7 @@ public class CreerDeplacementActivity extends Activity {
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
 		case 999:
-		   return new DatePickerDialog(this, datePickerListener, annee, mois, jour);
+		   return new DatePickerDialog(this, datePickerListener, annee, mois - 1, jour);
 		}
 		return null;
 	}
