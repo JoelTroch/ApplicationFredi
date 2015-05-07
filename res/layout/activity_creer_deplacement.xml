@@ -120,7 +120,7 @@
 	        android:layout_centerHorizontal="true"
 	        android:layout_marginTop="10dp"
 	        android:ems="13"
-	        android:inputType="number"
+	        android:inputType="numberDecimal"
 	        android:text="@string/zero"
 	        android:singleLine="true" />
 	    
