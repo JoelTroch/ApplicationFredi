@@ -29,6 +29,7 @@
     <!-- Caractères provenant de http://www.ascii-code.com/ -->
     <string name="filtrage_caracteres">" "\',-.ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzŒŽœžŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåæçèéêëìíîïñòóôõöœùúùûüýÿ\"</string>
     <string name="filtrage_caracteres_adresses">" "\',-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzŒŽœžŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåæçèéêëìíîïñòóôõöœùúùûüýÿ\"</string>
+    <string name="gerer_remboursements">Gérer les remboursements</string>
     <string name="intitule_trajet">Intitulé trajet :</string>
     <string name="kilometrage">Kilométrage :</string>
     <string name="modifier">Modifier</string>
@@ -39,6 +40,9 @@
     <string name="nom">Nom :</string>
     <string name="pour">Pour :</string>
     <string name="prenom">Prénom :</string>
+    <string name="remboursable">Remboursable :</string>
+    <string name="rembourser_non">Ne doit pas rembourser</string>
+    <string name="rembourser_oui">Doit rembourser</string>
     <string name="saisir_toutes_les_infos">Vous devez saisir toutes les informations !</string>
     <string name="saisir_une_valeur">Vous devez saisir une valeur !</string>
     <string name="suppression_effectuee">Suppression effectuée !</string>
@@ -52,6 +56,7 @@
     <string name="title_activity_modifier_deplacement">Modifier un déplacement</string>
     <string name="title_activity_modifier_motif">Modifier un motif</string>
     <string name="title_activity_motifs">Motifs</string>
+    <string name="title_activity_remboursements">Remboursements</string>
     <string name="tuto_associations_clic_court">Court = Gérer ses déplacements.</string>
     <string name="tuto_associations_clic_long">Long = Modifie ou efface l\'association.</string>
     <string name="tuto_associations_intitule">Clic sur association dans la liste :</string>

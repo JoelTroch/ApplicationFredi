@@ -48,6 +48,14 @@ public class BDHelper extends SQLiteOpenHelper {
 			+ "tutoDeplacementsFait BOOL NOT NULL, "
 			+ "tutoMotifsFait BOOL NOT NULL);";
 	
+	private final String requeteCreationTableRemboursement = "CREATE TABLE remboursement("
+			+ "idAssociation INTEGER NOT NULL, "
+			+ "annee INTEGER NOT NULL, "
+			+ "doitRembourser BOOL NOT NULL, "
+			+ "PRIMARY KEY(idAssociation, annee), "
+			+ "FOREIGN KEY(idAssociation) REFERENCES association(_id));";
+	// FAIL : SQLite n'aime pas quand on met PRIMARY KEY dans les champs
+	
 	// ====================================================================================================
 	// CONSTRUCTEUR
 	// ====================================================================================================
@@ -76,6 +84,7 @@ public class BDHelper extends SQLiteOpenHelper {
 		bdd.execSQL(requeteCreationTableDeplacement);
 		bdd.execSQL(requeteCreationTableMotif);
 		bdd.execSQL(requeteCreationTableUtilisateur);
+		bdd.execSQL(requeteCreationTableRemboursement);
 		
 		// Création des motifs par défaut
 		bdd.execSQL("INSERT INTO motif VALUES(1, 'Voyage');");

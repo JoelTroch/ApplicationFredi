@@ -52,6 +52,10 @@
             android:name=".CreerMotifActivity"
             android:label="@string/title_activity_creer_motif" >
         </activity>
+        <activity
+            android:name=".RemboursementsActivity"
+            android:label="@string/title_activity_remboursements" >
+        </activity>
     </application>
 
 </manifest>

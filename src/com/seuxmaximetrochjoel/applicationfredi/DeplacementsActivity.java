@@ -78,6 +78,19 @@ public class DeplacementsActivity extends Activity {
 			
 		});
 		
+		// Paramétrage du bouton "Gérer remboursements"
+		Button btnGererRemboursements = (Button)findViewById(R.id.btnGererRemboursements);
+		btnGererRemboursements.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent2 = new Intent(DeplacementsActivity.this, RemboursementsActivity.class);
+				intent2.putExtra("EXTRA_ASSOCIATION_ID", intent.getLongExtra("EXTRA_ASSOCIATION_ID", -1));
+				intent2.putExtra("EXTRA_ASSOCIATION_NOM", intent.getStringExtra("EXTRA_ASSOCIATION_NOM"));
+				startActivity(intent2);
+			}
+		});
+		
 		// Initialisation de la liste d'affichage, mise à jour de son contenu, affichage et paramétrage menu contextuel
 		liste = (ListView)findViewById(R.id.listViewDeplacements);
 		manipDeplacementBDD = new DeplacementDAO(this);
